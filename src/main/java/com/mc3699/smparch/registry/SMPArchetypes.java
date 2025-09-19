@@ -2,6 +2,7 @@ package com.mc3699.smparch.registry;
 
 import com.mc3699.smparch.SMPArch;
 import com.mc3699.smparch.archetype.nightheart.NightheartArchetype;
+import com.mc3699.smparch.archetype.nuzabilitys.NuzArchetype;
 import net.mc3699.provenance.ProvenanceRegistries;
 import net.mc3699.provenance.ability.foundation.BaseAbility;
 import net.mc3699.provenance.archetype.foundation.BaseArchetype;
@@ -18,6 +19,9 @@ public class SMPArchetypes {
 
     public static final Supplier<NightheartArchetype> NIGHTHEART =
             ARCHETYPES.register("nightheart", NightheartArchetype::new);
+
+    public static final Supplier<NuzArchetype> NUZABILITYS =
+            ARCHETYPES.register("nuz", NuzArchetype::new);
 
 
     public static void register(IEventBus eventBus)
