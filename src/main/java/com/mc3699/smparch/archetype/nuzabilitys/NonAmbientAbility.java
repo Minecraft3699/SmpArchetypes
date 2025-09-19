@@ -14,7 +14,7 @@ public class NonAmbientAbility extends AmbientAbility {
 
     @Override
     public Component getName() {
-        return Component.literal("AmbientTest");
+        return Component.literal("AmbientTestt");
     }
 
     @Override
