@@ -2,6 +2,7 @@ package com.mc3699.smparch.archetype.nuzabilitys;
 
 import net.mc3699.provenance.ability.foundation.AmbientAbility;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.animal.Cod;
@@ -9,7 +10,11 @@ import net.minecraft.world.entity.animal.Cod;
 public class NonAmbientAbility extends AmbientAbility {
     @Override
     public void tick(ServerPlayer serverPlayer) {
+        ServerLevel serverLevel = serverPlayer.serverLevel();
 
+        Cod cod = new Cod(EntityType.COD, serverLevel);
+        cod.setPos(serverPlayer.blockPosition().getCenter());
+        serverLevel.addFreshEntity(cod);
     }
 
     @Override

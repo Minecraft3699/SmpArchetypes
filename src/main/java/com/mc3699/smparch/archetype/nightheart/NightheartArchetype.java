@@ -36,3 +36,4 @@ public class NightheartArchetype extends BaseArchetype {
         return List.of();
     }
 }
+
