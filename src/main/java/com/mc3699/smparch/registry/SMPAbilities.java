@@ -2,10 +2,10 @@ package com.mc3699.smparch.registry;
 
 import com.mc3699.smparch.SMPArch;
 import com.mc3699.smparch.archetype.nightheart.RandomTeleportAbility;
-import com.mc3699.smparch.archetype.nuzabilitys.TestAbility;
+import com.mc3699.smparch.archetype.nuzabilitys.NonAmbientAbility;
+import com.mc3699.smparch.archetype.nuzabilitys.Brace;
 import net.mc3699.provenance.ProvenanceRegistries;
 import net.mc3699.provenance.ability.foundation.BaseAbility;
-import net.minecraft.core.Holder;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -20,8 +20,11 @@ public class SMPAbilities {
     public static final Supplier<RandomTeleportAbility> RANDOM_TELEPORT =
             ABILITIES.register("random_teleport", RandomTeleportAbility::new);
 
-    public static final Supplier<TestAbility> TESTABILITY =
-            ABILITIES.register("testability", TestAbility::new);
+    public static final Supplier<Brace> BRACE =
+            ABILITIES.register("brace", Brace::new);
+
+    public static final Supplier<NonAmbientAbility> NON_AMBIENT_ABILITY =
+            ABILITIES.register("no", NonAmbientAbility::new);
 
 
     public static void register(IEventBus eventBus)

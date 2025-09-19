@@ -25,15 +25,15 @@ public class NuzArchetype extends BaseArchetype {
     @Override
     public HashMap<Integer, BaseAbility> getPlayerAbilities() {
         HashMap<Integer, BaseAbility> abilityMap = new HashMap<>();
-        abilityMap.put(1, SMPAbilities.TESTABILITY.get());
+        abilityMap.put(1, SMPAbilities.BRACE.get());
+        abilityMap.put(2, ProvAbilities.RAGE.get());
         return abilityMap;
     }
 
     @Override
     public List<AmbientAbility> getAmbientAbilities() {
         return List.of(
-                ProvAbilities.NIGHT_VISION_AMBIENT.get(),
-                ProvAbilities.EAT_ENTITY.get()
+                ProvAbilities.NIGHT_VISION_AMBIENT.get()
         );
     }
 }
