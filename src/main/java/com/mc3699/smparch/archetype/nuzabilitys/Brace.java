@@ -31,5 +31,6 @@ public class Brace extends BaseAbility {
     public void execute(ServerPlayer player) {
         player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE,20,10));
         super.execute(player);
+
     }
 }

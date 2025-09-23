@@ -32,8 +32,7 @@ public class NuzArchetype extends BaseArchetype {
     @Override
     public List<AmbientAbility> getAmbientAbilities() {
         return List.of(
-                ProvAbilities.NIGHT_VISION_AMBIENT.get(),
-                SMPAbilities.COD_ABILITY.get()
+                ProvAbilities.NIGHT_VISION_AMBIENT.get()
         );
     }
 }
