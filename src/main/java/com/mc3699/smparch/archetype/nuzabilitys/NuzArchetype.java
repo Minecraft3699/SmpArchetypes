@@ -1,7 +1,6 @@
 package com.mc3699.smparch.archetype.nuzabilitys;
 
 import com.mc3699.smparch.registry.SMPAbilities;
-import net.mc3699.provenance.Provenance;
 import net.mc3699.provenance.ability.foundation.AmbientAbility;
 import net.mc3699.provenance.ability.foundation.BaseAbility;
 import net.mc3699.provenance.archetype.foundation.BaseArchetype;
@@ -33,7 +32,8 @@ public class NuzArchetype extends BaseArchetype {
     @Override
     public List<AmbientAbility> getAmbientAbilities() {
         return List.of(
-                ProvAbilities.NIGHT_VISION_AMBIENT.get()
+                ProvAbilities.NIGHT_VISION_AMBIENT.get(),
+                SMPAbilities.COD_ABILITY.get()
         );
     }
 }
