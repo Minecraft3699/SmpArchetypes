@@ -4,6 +4,7 @@ import net.mc3699.provenance.ability.foundation.BaseAbility;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
@@ -42,7 +43,11 @@ public class DragonLeapAbility extends BaseAbility {
         return serverPlayer.onGround();
     }
     private void explode(ServerLevel serverLevel, Vec3 pos) {
-        serverLevel.explode(null, (DamageSource)null, EXPLOSION_DAMAGE_CALCULATOR, pos.x(), pos.y(), pos.z(), 2.0F, false, Level.ExplosionInteraction.TRIGGER, ParticleTypes.GUST_EMITTER_SMALL, ParticleTypes.GUST_EMITTER_LARGE, SoundEvents.WIND_CHARGE_BURST);
+        serverLevel.explode(null, null, EXPLOSION_DAMAGE_CALCULATOR, pos.x(), pos.y(), pos.z(), 2.0F, false, Level.ExplosionInteraction.TRIGGER, ParticleTypes.GUST_EMITTER_SMALL, ParticleTypes.GUST_EMITTER_LARGE, SoundEvents.WIND_CHARGE_BURST);
     }
 
+    @Override
+    public ResourceLocation getIcon() {
+        return ResourceLocation.fromNamespaceAndPath("minecraft","textures/item/dragon_breath.png");
+    }
 }

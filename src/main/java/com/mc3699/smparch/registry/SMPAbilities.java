@@ -1,11 +1,15 @@
 package com.mc3699.smparch.registry;
 
 import com.mc3699.smparch.SMPArch;
+import com.mc3699.smparch.archetype.arveral.TendrilsAbility;
 import com.mc3699.smparch.archetype.firelight.DragonLeapAbility;
 import com.mc3699.smparch.archetype.nightheart.RandomTeleportAbility;
 import com.mc3699.smparch.archetype.nuzabilitys.CodAbility;
 import com.mc3699.smparch.archetype.nuzabilitys.Brace;
+import com.mc3699.smparch.archetype.oscar_savior.BlinkAbility;
+import com.mc3699.smparch.archetype.oscar_savior.DeterminationAbility;
 import com.mc3699.smparch.generic_abilities.DashAbility;
+import com.mc3699.smparch.generic_abilities.WallClimbAbility;
 import net.mc3699.provenance.ProvenanceRegistries;
 import net.mc3699.provenance.ability.foundation.BaseAbility;
 import net.neoforged.bus.api.IEventBus;
@@ -33,6 +37,18 @@ public class SMPAbilities {
 
     public static final Supplier<DragonLeapAbility> DRAGON_LEAP =
             ABILITIES.register("dragon_leap", DragonLeapAbility::new);
+
+    public static final Supplier<WallClimbAbility> WALL_CLIMB =
+            ABILITIES.register("wall_climb", WallClimbAbility::new);
+
+    public static final Supplier<TendrilsAbility> TENDRILS =
+            ABILITIES.register("tendrils", TendrilsAbility::new);
+
+    public static final Supplier<BlinkAbility> BLINK =
+            ABILITIES.register("blink", BlinkAbility::new);
+
+    public static final Supplier<DeterminationAbility> DETERMINATION =
+            ABILITIES.register("determination", DeterminationAbility::new);
 
 
     public static void register(IEventBus eventBus)
