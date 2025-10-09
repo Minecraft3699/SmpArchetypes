@@ -2,6 +2,9 @@ package com.mc3699.smparch.registry;
 
 import com.mc3699.smparch.SMPArch;
 import com.mc3699.smparch.archetype.arveral.TendrilsAbility;
+import com.mc3699.smparch.archetype.blox.BloxDashAbility;
+import com.mc3699.smparch.archetype.blox.BloxShieldAbility;
+import com.mc3699.smparch.archetype.blox.BloxSpeedAbility;
 import com.mc3699.smparch.archetype.firelight.DragonLeapAbility;
 import com.mc3699.smparch.archetype.nightheart.RandomTeleportAbility;
 import com.mc3699.smparch.archetype.nuzabilitys.CodAbility;
@@ -49,6 +52,15 @@ public class SMPAbilities {
 
     public static final Supplier<DeterminationAbility> DETERMINATION =
             ABILITIES.register("determination", DeterminationAbility::new);
+
+    public static final Supplier<BloxShieldAbility> BLOX_SHIELD =
+            ABILITIES.register("blox_shield", BloxShieldAbility::new);
+
+    public static final Supplier<BloxDashAbility> BLOX_DASH =
+            ABILITIES.register("blox_dash", BloxDashAbility::new);
+
+    public static final Supplier<BloxSpeedAbility> BLOX_SPEED =
+            ABILITIES.register("blox_speed", BloxSpeedAbility::new);
 
 
     public static void register(IEventBus eventBus)

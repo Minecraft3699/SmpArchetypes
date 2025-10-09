@@ -2,6 +2,7 @@ package com.mc3699.smparch.registry;
 
 import com.mc3699.smparch.SMPArch;
 import com.mc3699.smparch.archetype.arveral.ArveralArchetype;
+import com.mc3699.smparch.archetype.blox.BloxArchetype;
 import com.mc3699.smparch.archetype.firelight.FirelightArchetype;
 import com.mc3699.smparch.archetype.nightheart.NightheartArchetype;
 import com.mc3699.smparch.archetype.nuzabilitys.NuzArchetype;
@@ -34,6 +35,9 @@ public class SMPArchetypes {
 
     public static final Supplier<OscarSaviorArchetype> OSCAR_SAVIOR =
             ARCHETYPES.register("oscar_savior", OscarSaviorArchetype::new);
+
+    public static final Supplier<BloxArchetype> BLOX =
+            ARCHETYPES.register("blox", BloxArchetype::new);
 
 
     public static void register(IEventBus eventBus)
