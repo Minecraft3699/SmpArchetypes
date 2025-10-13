@@ -1,9 +1,12 @@
 package com.mc3699.smparch.registry;
 
 import com.mc3699.smparch.SMPArch;
+import com.mc3699.smparch.archetype.aidenman.AidenArchetype;
 import com.mc3699.smparch.archetype.arveral.ArveralArchetype;
 import com.mc3699.smparch.archetype.blox.BloxArchetype;
 import com.mc3699.smparch.archetype.firelight.FirelightArchetype;
+import com.mc3699.smparch.archetype.heaven.BlackoutAbility;
+import com.mc3699.smparch.archetype.heaven.HeavenArchetype;
 import com.mc3699.smparch.archetype.nightheart.NightheartArchetype;
 import com.mc3699.smparch.archetype.nuzabilitys.NuzArchetype;
 import com.mc3699.smparch.archetype.oscar_savior.OscarSaviorArchetype;
@@ -38,6 +41,12 @@ public class SMPArchetypes {
 
     public static final Supplier<BloxArchetype> BLOX =
             ARCHETYPES.register("blox", BloxArchetype::new);
+
+    public static final Supplier<HeavenArchetype> HEAVEN =
+            ARCHETYPES.register("heaven", HeavenArchetype::new);
+
+    public static final Supplier<AidenArchetype> AIDEN =
+            ARCHETYPES.register("aiden", AidenArchetype::new);
 
 
     public static void register(IEventBus eventBus)

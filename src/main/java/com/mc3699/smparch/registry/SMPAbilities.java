@@ -1,6 +1,7 @@
 package com.mc3699.smparch.registry;
 
 import com.mc3699.smparch.SMPArch;
+import com.mc3699.smparch.archetype.aidenman.PhotosynthesisAbility;
 import com.mc3699.smparch.archetype.arveral.TendrilsAbility;
 import com.mc3699.smparch.archetype.blox.BloxDashAbility;
 import com.mc3699.smparch.archetype.blox.BloxShieldAbility;
@@ -61,6 +62,9 @@ public class SMPAbilities {
 
     public static final Supplier<BloxSpeedAbility> BLOX_SPEED =
             ABILITIES.register("blox_speed", BloxSpeedAbility::new);
+
+    public static final Supplier<PhotosynthesisAbility> PHOTOSYNTHESIS =
+            ABILITIES.register("photosynthesis", PhotosynthesisAbility::new);
 
 
     public static void register(IEventBus eventBus)

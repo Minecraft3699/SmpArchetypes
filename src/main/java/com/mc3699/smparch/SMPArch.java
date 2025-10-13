@@ -2,6 +2,7 @@ package com.mc3699.smparch;
 
 import com.mc3699.smparch.registry.SMPAbilities;
 import com.mc3699.smparch.registry.SMPArchetypes;
+import com.mc3699.smparch.registry.SMPEntities;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -41,6 +42,7 @@ public class SMPArch {
     public SMPArch(IEventBus modEventBus, ModContainer modContainer) {
         SMPAbilities.register(modEventBus);
         SMPArchetypes.register(modEventBus);
+        SMPEntities.register(modEventBus);
     }
 
 }
