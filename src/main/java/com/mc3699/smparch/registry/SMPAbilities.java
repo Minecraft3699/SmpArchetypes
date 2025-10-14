@@ -7,6 +7,9 @@ import com.mc3699.smparch.archetype.blox.BloxDashAbility;
 import com.mc3699.smparch.archetype.blox.BloxShieldAbility;
 import com.mc3699.smparch.archetype.blox.BloxSpeedAbility;
 import com.mc3699.smparch.archetype.firelight.DragonLeapAbility;
+import com.mc3699.smparch.archetype.growth.GrowthDebuff;
+import com.mc3699.smparch.archetype.growth.NatureGiftAbility;
+import com.mc3699.smparch.archetype.growth.NatureSightAbility;
 import com.mc3699.smparch.archetype.nightheart.RandomTeleportAbility;
 import com.mc3699.smparch.archetype.nuzabilitys.CodAbility;
 import com.mc3699.smparch.archetype.nuzabilitys.Brace;
@@ -65,6 +68,15 @@ public class SMPAbilities {
 
     public static final Supplier<PhotosynthesisAbility> PHOTOSYNTHESIS =
             ABILITIES.register("photosynthesis", PhotosynthesisAbility::new);
+
+    public static final Supplier<NatureGiftAbility> NATURES_GIFT =
+            ABILITIES.register("nature_gift", NatureGiftAbility::new);
+
+    public static final Supplier<NatureSightAbility> NATURES_SIGHT =
+            ABILITIES.register("nature_sight", NatureSightAbility::new);
+
+    public static final Supplier<GrowthDebuff> GROWTH_DEBUFF =
+            ABILITIES.register("growth_debuff", GrowthDebuff::new);
 
 
     public static void register(IEventBus eventBus)

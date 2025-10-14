@@ -5,6 +5,7 @@ import com.mc3699.smparch.archetype.aidenman.AidenArchetype;
 import com.mc3699.smparch.archetype.arveral.ArveralArchetype;
 import com.mc3699.smparch.archetype.blox.BloxArchetype;
 import com.mc3699.smparch.archetype.firelight.FirelightArchetype;
+import com.mc3699.smparch.archetype.growth.GrowthArchetype;
 import com.mc3699.smparch.archetype.heaven.BlackoutAbility;
 import com.mc3699.smparch.archetype.heaven.HeavenArchetype;
 import com.mc3699.smparch.archetype.nightheart.NightheartArchetype;
@@ -27,9 +28,6 @@ public class SMPArchetypes {
     public static final Supplier<NightheartArchetype> NIGHTHEART =
             ARCHETYPES.register("nightheart", NightheartArchetype::new);
 
-    public static final Supplier<NuzArchetype> NUZABILITYS =
-            ARCHETYPES.register("nuz", NuzArchetype::new);
-
     public static final Supplier<FirelightArchetype> FIRELIGHT =
             ARCHETYPES.register("firelight", FirelightArchetype::new);
 
@@ -47,6 +45,9 @@ public class SMPArchetypes {
 
     public static final Supplier<AidenArchetype> AIDEN =
             ARCHETYPES.register("aiden", AidenArchetype::new);
+
+    public static final Supplier<GrowthArchetype> GROWTH =
+            ARCHETYPES.register("growth", GrowthArchetype::new);
 
 
     public static void register(IEventBus eventBus)
