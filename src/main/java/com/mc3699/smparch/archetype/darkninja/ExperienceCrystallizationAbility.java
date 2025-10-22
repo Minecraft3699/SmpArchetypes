@@ -2,6 +2,7 @@ package com.mc3699.smparch.archetype.darkninja;
 
 import net.mc3699.provenance.ability.foundation.BaseAbility;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -25,6 +26,10 @@ public class ExperienceCrystallizationAbility extends BaseAbility {
     @Override
     public Component getName() {
         return Component.literal("Experience Crystallization");
+    }
+
+    public ResourceLocation getIcon() {
+        return ResourceLocation.fromNamespaceAndPath("create","textures/item/experience_nugget.png");
     }
 
     @Override

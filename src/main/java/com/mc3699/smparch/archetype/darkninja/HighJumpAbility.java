@@ -2,6 +2,7 @@ package com.mc3699.smparch.archetype.darkninja;
 
 import net.mc3699.provenance.ability.foundation.ToggleAbility;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -18,6 +19,10 @@ public class HighJumpAbility extends ToggleAbility {
     @Override
     public Component getName() {
         return Component.literal("High Jump");
+    }
+
+    public ResourceLocation getIcon() {
+        return ResourceLocation.fromNamespaceAndPath("minecraft","textures/item/feather.png");
     }
 
     @Override

@@ -10,6 +10,7 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.level.block.Blocks;
 
 public class MoonsPunishment extends AmbientAbility {
+    // TODO: only run the tick code every 2 seconds or something to reduce stress, probably using modulo operator
     @Override
     public void tick(ServerPlayer player) {
         ServerLevel world = player.serverLevel();
