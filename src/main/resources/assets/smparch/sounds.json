@@ -1,0 +1,17 @@
+{
+  "heartbeat": {
+    "sounds" : [
+      {
+        "name": "smparch:heartbeat"
+      }
+    ]
+  },
+
+  "slam_fall": {
+    "sounds": [
+      {
+        "name": "smparch:slam_fall"
+      }
+    ]
+  }
+}

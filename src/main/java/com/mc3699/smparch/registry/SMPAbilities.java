@@ -10,11 +10,13 @@ import com.mc3699.smparch.archetype.firelight.DragonLeapAbility;
 import com.mc3699.smparch.archetype.growth.GrowthDebuff;
 import com.mc3699.smparch.archetype.growth.NatureGiftAbility;
 import com.mc3699.smparch.archetype.growth.NatureSightAbility;
+import com.mc3699.smparch.archetype.john_ultrakill.UltrakillDashAbility;
+import com.mc3699.smparch.archetype.john_ultrakill.UltrakillSlamAbility;
 import com.mc3699.smparch.archetype.nightheart.RandomTeleportAbility;
-import com.mc3699.smparch.archetype.nuzabilitys.CodAbility;
-import com.mc3699.smparch.archetype.nuzabilitys.Brace;
 import com.mc3699.smparch.archetype.oscar_savior.BlinkAbility;
 import com.mc3699.smparch.archetype.oscar_savior.DeterminationAbility;
+import com.mc3699.smparch.archetype.terra.HeartbeatAbility;
+import com.mc3699.smparch.archetype.terra.SolarSurgeAbility;
 import com.mc3699.smparch.generic_abilities.DashAbility;
 import com.mc3699.smparch.generic_abilities.WallClimbAbility;
 import net.mc3699.provenance.ProvenanceRegistries;
@@ -32,12 +34,6 @@ public class SMPAbilities {
 
     public static final Supplier<RandomTeleportAbility> RANDOM_TELEPORT =
             ABILITIES.register("random_teleport", RandomTeleportAbility::new);
-
-    public static final Supplier<Brace> BRACE =
-            ABILITIES.register("brace", Brace::new);
-
-    public static final Supplier<CodAbility> COD_ABILITY =
-            ABILITIES.register("cod", CodAbility::new);
 
     public static final Supplier<DashAbility> DASH =
             ABILITIES.register("dash", DashAbility::new);
@@ -77,6 +73,18 @@ public class SMPAbilities {
 
     public static final Supplier<GrowthDebuff> GROWTH_DEBUFF =
             ABILITIES.register("growth_debuff", GrowthDebuff::new);
+
+    public static final Supplier<HeartbeatAbility> HEARTBEAT =
+            ABILITIES.register("heartbeat", HeartbeatAbility::new);
+
+    public static final Supplier<SolarSurgeAbility> SOLAR_SURGE =
+            ABILITIES.register("solar_surge", SolarSurgeAbility::new);
+
+    public static final Supplier<UltrakillDashAbility> ULTRAKILL_DASH =
+            ABILITIES.register("ultrakill_dash", UltrakillDashAbility::new);
+
+    public static final Supplier<UltrakillSlamAbility> ULTRAKILL_SLAM =
+            ABILITIES.register("ultrakill_slam", UltrakillSlamAbility::new);
 
 
     public static void register(IEventBus eventBus)

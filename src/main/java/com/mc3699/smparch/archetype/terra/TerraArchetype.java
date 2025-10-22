@@ -1,19 +1,20 @@
-package com.mc3699.smparch.archetype.nuzabilitys;
+package com.mc3699.smparch.archetype.terra;
 
+import com.mc3699.smparch.SMPArch;
 import com.mc3699.smparch.registry.SMPAbilities;
 import net.mc3699.provenance.ability.foundation.AmbientAbility;
 import net.mc3699.provenance.ability.foundation.BaseAbility;
 import net.mc3699.provenance.archetype.foundation.BaseArchetype;
-import net.mc3699.provenance.registry.ProvAbilities;
 import net.minecraft.network.chat.Component;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 
-public class NuzArchetype extends BaseArchetype {
+public class TerraArchetype extends BaseArchetype {
     @Override
     public Component getName() {
-        return Component.literal("Nuz");
+        return Component.literal("Terra");
     }
 
     @Override
@@ -23,15 +24,14 @@ public class NuzArchetype extends BaseArchetype {
 
     @Override
     public HashMap<Integer, BaseAbility> getPlayerAbilities() {
-        HashMap<Integer, BaseAbility> abilityMap = new HashMap<>();
-        abilityMap.put(1, SMPAbilities.BRACE.get());
-        return abilityMap;
+        HashMap<Integer, BaseAbility> abilities = new LinkedHashMap<>();
+        abilities.put(1, SMPAbilities.HEARTBEAT.get());
+        abilities.put(2, SMPAbilities.SOLAR_SURGE.get());
+        return abilities;
     }
 
     @Override
     public List<AmbientAbility> getAmbientAbilities() {
-        return List.of(
-                SMPAbilities.COD_ABILITY.get()
-        );
+        return List.of();
     }
 }
