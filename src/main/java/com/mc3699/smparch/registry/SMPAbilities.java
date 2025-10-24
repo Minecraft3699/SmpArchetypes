@@ -6,10 +6,6 @@ import com.mc3699.smparch.archetype.arveral.TendrilsAbility;
 import com.mc3699.smparch.archetype.blox.BloxDashAbility;
 import com.mc3699.smparch.archetype.blox.BloxShieldAbility;
 import com.mc3699.smparch.archetype.blox.BloxSpeedAbility;
-import com.mc3699.smparch.archetype.darkninja.FocusedTeleportationAbility;
-import com.mc3699.smparch.archetype.darkninja.ExperienceCrystallizationAbility;
-import com.mc3699.smparch.archetype.darkninja.HighJumpAbility;
-import com.mc3699.smparch.archetype.darkninja.MoonsPunishment;
 import com.mc3699.smparch.archetype.firelight.DragonLeapAbility;
 import com.mc3699.smparch.archetype.growth.GrowthDebuff;
 import com.mc3699.smparch.archetype.growth.NatureGiftAbility;
@@ -90,17 +86,6 @@ public class SMPAbilities {
     public static final Supplier<UltrakillSlamAbility> ULTRAKILL_SLAM =
             ABILITIES.register("ultrakill_slam", UltrakillSlamAbility::new);
 
-    public static final Supplier<FocusedTeleportationAbility> FOCUSED_TELEPORTATION =
-            ABILITIES.register("focused_teleportation", FocusedTeleportationAbility::new);
-
-    public static final Supplier<ExperienceCrystallizationAbility> EXPERIENCE_CRYSTALLIZATION =
-            ABILITIES.register("experience_crystallization", ExperienceCrystallizationAbility::new);
-
-    public static final Supplier<HighJumpAbility> HIGH_JUMP =
-            ABILITIES.register("high_jump", HighJumpAbility::new);
-
-    public static final Supplier<MoonsPunishment> MOONS_PUNISHMENT =
-            ABILITIES.register("moons_punishment", MoonsPunishment::new);
 
     public static void register(IEventBus eventBus) { ABILITIES.register(eventBus); }
 
