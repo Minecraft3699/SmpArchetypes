@@ -41,10 +41,10 @@ public class ExperienceCrystallizationAbility extends BaseAbility {
     public void execute(ServerPlayer player) {
         super.execute(player);
 
-        ServerLevel serverLevel = player.serverLevel();
+        ServerLevel level = player.serverLevel();
 
         AABB searchArea = new AABB(player.getBlockPosBelowThatAffectsMyMovement()).inflate(16);
-        List<ExperienceOrb> orbs = serverLevel.getEntitiesOfClass(ExperienceOrb.class, searchArea);
+        List<ExperienceOrb> orbs = level.getEntitiesOfClass(ExperienceOrb.class, searchArea);
         orbs.forEach(o -> {
             // TODO: Figure out how to spawn Experience Nuggets before destroying the xp orb
             //o.spawnAtLocation(new ItemStack(Items.EXPERIENCE_NUGGET));

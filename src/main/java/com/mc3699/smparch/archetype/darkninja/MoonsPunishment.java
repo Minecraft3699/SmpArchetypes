@@ -13,20 +13,20 @@ public class MoonsPunishment extends AmbientAbility {
     // TODO: only run the tick code every 2 seconds or something to reduce stress, probably using modulo operator
     @Override
     public void tick(ServerPlayer player) {
-        ServerLevel world = player.serverLevel();
-        int phase = world.getMoonPhase();
+        ServerLevel level = player.serverLevel();
+        int phase = level.getMoonPhase();
         if (phase == 2 || phase == 3 || phase == 5 || phase == 6) {
             // meant to give you weakness 1 on Third Quarter, Waning Crescent, Waxing Crescent, and First Quarter moon phases
-            player.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 10, 0));
+            player.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 20, 0));
         } else if (phase == 4) {
             // meant to give you weakness 2 and slowness 1 on full moon
-            player.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 10, 1));
-            player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 10, 0));
+            player.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 20, 1));
+            player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 20, 0));
         }
         // TODO: give weakness 3, withering 1, and nausea 1 when being chased by TBE
-        /*player.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 10, 2));
-        player.addEffect(new MobEffectInstance(MobEffects.WITHER, 10, 0));
-        player.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 10, 0));*/
+        /*player.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 20, 2));
+        player.addEffect(new MobEffectInstance(MobEffects.WITHER, 20, 0));
+        player.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 20, 0));*/
     }
 
     @Override
@@ -36,8 +36,8 @@ public class MoonsPunishment extends AmbientAbility {
 
     @Override
     public boolean canExecute(ServerPlayer player) {
-        ServerLevel world = player.serverLevel();
+        ServerLevel level = player.serverLevel();
         BlockPos pos = player.blockPosition();
-        return world.canSeeSky(pos);
+        return level.canSeeSky(pos);
     }
 }
