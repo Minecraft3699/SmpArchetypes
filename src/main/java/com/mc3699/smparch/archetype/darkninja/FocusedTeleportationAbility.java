@@ -1,28 +1,26 @@
 package com.mc3699.smparch.archetype.darkninja;
 
+import net.mc3699.provenance.ProvenanceDataHandler;
 import net.mc3699.provenance.ability.foundation.BaseAbility;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Holder;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.damagesource.DamageSources;
-import net.minecraft.world.damagesource.DamageType;
-import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
-import net.neoforged.neoforge.common.Tags;
 
 public class FocusedTeleportationAbility extends BaseAbility {
-    // no clue how the costs work or what is a good cost for such a thing
     @Override
     public float getUseCost() {
         return 2;
+    }
+
+    @Override
+    public int getCooldown() {
+        return 20;
     }
 
     @Override
@@ -52,13 +50,17 @@ public class FocusedTeleportationAbility extends BaseAbility {
                 player
         ));
 
-        Vec3 endPos = hitResult.getType() == BlockHitResult.Type.MISS
-                ? target
-                : hitResult.getLocation().subtract(look.scale(0.5));
+        if (hitResult.getType() == BlockHitResult.Type.MISS) {
+            ProvenanceDataHandler.changeAP(player, 2);
+        } else {
+            Vec3 endPos = hitResult.getType() == BlockHitResult.Type.MISS
+                    ? target
+                    : hitResult.getLocation().subtract(look.scale(0.5));
 
-        player.teleportTo(endPos.x, endPos.y, endPos.z);
-        player.hurt(level.damageSources().fall(),5);
-        level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.PLAYER_TELEPORT, SoundSource.PLAYERS);
+            player.teleportTo(endPos.x, endPos.y, endPos.z);
+            player.hurt(level.damageSources().fall(),5);
+            level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.PLAYER_TELEPORT, SoundSource.PLAYERS);
+        }
     }
 
     @Override

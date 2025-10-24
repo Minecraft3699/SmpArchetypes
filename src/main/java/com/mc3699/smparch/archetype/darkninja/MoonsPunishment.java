@@ -1,5 +1,6 @@
 package com.mc3699.smparch.archetype.darkninja;
 
+import dev.wendigodrip.thebrokenscript.entity.tbe.TheBrokenEndEntity;
 import net.mc3699.provenance.ability.foundation.AmbientAbility;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -7,7 +8,9 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.phys.AABB;
+
+import java.util.List;
 
 public class MoonsPunishment extends AmbientAbility {
     // TODO: only run the tick code every 2 seconds or something to reduce stress, probably using modulo operator
@@ -23,10 +26,19 @@ public class MoonsPunishment extends AmbientAbility {
             player.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 20, 1));
             player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 20, 0));
         }
-        // TODO: give weakness 3, withering 1, and nausea 1 when being chased by TBE
-        /*player.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 20, 2));
-        player.addEffect(new MobEffectInstance(MobEffects.WITHER, 20, 0));
-        player.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 20, 0));*/
+        // meant to give you weakness 3, withering 1, and nausea 2 when being chased by TBE
+        /// COMMENT THIS PART OUT AND REMOVE THE TBE IMPORT IF YOU DO NOT WANT TO ADD TBS AS A DEPENDENCY vvv
+        AABB searchArea = player.getBoundingBox().inflate(200);
+        List<TheBrokenEndEntity> entities = level.getEntitiesOfClass(TheBrokenEndEntity.class,searchArea);
+        entities.forEach(entity -> {
+            assert entity.getTarget() != null;
+            if ((entity.getTarget().equals(player))) {
+                player.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 200, 2));
+                player.addEffect(new MobEffectInstance(MobEffects.WITHER, 200, 0));
+                player.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 200, 1));
+            }
+        });
+        /// COMMENT THIS PART OUT AND REMOVE THE TBE IMPORT IF YOU DO NOT WANT TO ADD TBS AS A DEPENDENCY ^^^
     }
 
     @Override

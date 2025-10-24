@@ -1,27 +1,29 @@
 package com.mc3699.smparch.archetype.darkninja;
 
+import net.mc3699.provenance.ProvenanceDataHandler;
 import net.mc3699.provenance.ability.foundation.BaseAbility;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.ExperienceOrb;
-import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.phys.AABB;
+import net.neoforged.fml.ModList;
 
 import java.util.List;
 
 public class ExperienceCrystallizationAbility extends BaseAbility {
-    // no clue how the costs work or what is a good cost for such a thing
     @Override
-    public float getUseCost() {
-        return 4;
-    }
+    public float getUseCost() { return 3; }
+
+    @Override
+    public int getCooldown() { return 10; }
 
     @Override
     public Component getName() {
@@ -29,7 +31,11 @@ public class ExperienceCrystallizationAbility extends BaseAbility {
     }
 
     public ResourceLocation getIcon() {
-        return ResourceLocation.fromNamespaceAndPath("create","textures/item/experience_nugget.png");
+        if (ModList.get().isLoaded("create")) {
+            return ResourceLocation.fromNamespaceAndPath("create", "textures/item/experience_nugget.png");
+        } else {
+            return ResourceLocation.fromNamespaceAndPath("minecraft", "textures/item/barrier.png");
+        }
     }
 
     @Override
@@ -45,11 +51,27 @@ public class ExperienceCrystallizationAbility extends BaseAbility {
 
         AABB searchArea = new AABB(player.getBlockPosBelowThatAffectsMyMovement()).inflate(16);
         List<ExperienceOrb> orbs = level.getEntitiesOfClass(ExperienceOrb.class, searchArea);
-        orbs.forEach(o -> {
-            // TODO: Figure out how to spawn Experience Nuggets before destroying the xp orb
-            //o.spawnAtLocation(new ItemStack(Items.EXPERIENCE_NUGGET));
-            o.remove(Entity.RemovalReason.DISCARDED);
-        });
+        if (ModList.get().isLoaded("create") && !orbs.isEmpty()) {
+            orbs.forEach(o -> {
+                int value = getValue(o);
+
+                Item itemIdentity = BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath("create", "experience_nugget"));
+                ItemStack item = new ItemStack(itemIdentity, value);
+                o.spawnAtLocation(item);
+                o.remove(Entity.RemovalReason.DISCARDED);
+                level.playSound(null, o.getX(), o.getY(), o.getZ(), SoundEvents.AMETHYST_CLUSTER_BREAK, SoundSource.NEUTRAL);
+            });
+        } else {
+            ProvenanceDataHandler.changeAP(player, 3);
+        }
+    }
+    // increasing the output nugget count by 1 every 3 experience, because 1 nugget = 3 experience. I spent a bit too long making sure this was exploit-proof :/
+    private static int getValue(ExperienceOrb orb) {
+        int output = 1;
+        for (int i = 3; i < orb.value-2; i+=3) {
+            output++;
+        }
+        return output;
     }
 }
 

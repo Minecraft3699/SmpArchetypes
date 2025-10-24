@@ -3,17 +3,14 @@ package com.mc3699.smparch.archetype.darkninja;
 import net.mc3699.provenance.ability.foundation.ToggleAbility;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.level.block.Blocks;
 
 public class HighJumpAbility extends ToggleAbility {
-    // no clue how the costs work or what is a good cost for such a thing
     @Override
     public float getUseCost() {
-        return 0.02f;
+        return 0.04f;
     }
 
     @Override
@@ -22,7 +19,7 @@ public class HighJumpAbility extends ToggleAbility {
     }
 
     public ResourceLocation getIcon() {
-        return ResourceLocation.fromNamespaceAndPath("minecraft","textures/item/feather.png");
+        return ResourceLocation.fromNamespaceAndPath("minecraft","textures/mob_effect/jump_boost.png");
     }
 
     @Override
