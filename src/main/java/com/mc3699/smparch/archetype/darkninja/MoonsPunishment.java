@@ -22,7 +22,7 @@ public class MoonsPunishment extends AmbientAbility {
             // meant to give you weakness 1 on Third Quarter, Waning Crescent, Waxing Crescent, and First Quarter moon phases
             player.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 20, 0));
         } else if (phase == 4) {
-            // meant to give you weakness 2 and slowness 1 on full moon
+            // meant to give you weakness 2 and slowness 1 on a full moon
             player.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 20, 1));
             player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 20, 0));
         }

@@ -34,7 +34,7 @@ public class DarkNinjaArchetype extends BaseArchetype {
     @Override
     public List<AmbientAbility> getAmbientAbilities() {
         return List.of(
-                SMPAbilities.MOONS_PUNISHMENT.get()
+            SMPAbilities.MOONS_PUNISHMENT.get()
         );
     }
 }

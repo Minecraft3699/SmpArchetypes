@@ -65,7 +65,7 @@ public class ExperienceCrystallizationAbility extends BaseAbility {
             ProvenanceDataHandler.changeAP(player, 3);
         }
     }
-    // increasing the output nugget count by 1 every 3 experience, because 1 nugget = 3 experience. I spent a bit too long making sure this was exploit-proof :/
+    // increasing the output nugget count by 1 every 3 experience, because 1 nugget = 3 experience. I spent annoyingly long making sure this was exploit-proof :/
     private static int getValue(ExperienceOrb orb) {
         int output = 1;
         for (int i = 3; i < orb.value-2; i+=3) {

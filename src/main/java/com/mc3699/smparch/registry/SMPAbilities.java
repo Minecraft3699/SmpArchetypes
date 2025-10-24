@@ -27,7 +27,6 @@ import net.mc3699.provenance.ProvenanceRegistries;
 import net.mc3699.provenance.ability.foundation.BaseAbility;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import org.lwjgl.system.linux.XFocusChangeEvent;
 
 import java.util.function.Supplier;
 
@@ -103,9 +102,6 @@ public class SMPAbilities {
     public static final Supplier<MoonsPunishment> MOONS_PUNISHMENT =
             ABILITIES.register("moons_punishment", MoonsPunishment::new);
 
-    public static void register(IEventBus eventBus)
-    {
-        ABILITIES.register(eventBus);
-    }
+    public static void register(IEventBus eventBus) { ABILITIES.register(eventBus); }
 
 }

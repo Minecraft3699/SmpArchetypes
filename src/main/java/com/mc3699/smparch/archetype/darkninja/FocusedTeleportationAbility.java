@@ -34,7 +34,6 @@ public class FocusedTeleportationAbility extends BaseAbility {
     }
 
     // apparently Oscar_Savior already basically had this ability ready to go. That makes things SO much easier, unless I am clueless and this actually DOESN'T do what I want it to do.
-    // TODO: Make ender pearl particles when teleporting
     @Override
     public void execute(ServerPlayer player) {
         super.execute(player);
