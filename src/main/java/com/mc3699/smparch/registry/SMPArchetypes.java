@@ -4,6 +4,7 @@ import com.mc3699.smparch.SMPArch;
 import com.mc3699.smparch.archetype.aidenman.AidenArchetype;
 import com.mc3699.smparch.archetype.arveral.ArveralArchetype;
 import com.mc3699.smparch.archetype.blox.BloxArchetype;
+import com.mc3699.smparch.archetype.darkninja.DarkNinjaArchetype;
 import com.mc3699.smparch.archetype.firelight.FirelightArchetype;
 import com.mc3699.smparch.archetype.growth.GrowthArchetype;
 import com.mc3699.smparch.archetype.heaven.HeavenArchetype;
@@ -54,6 +55,8 @@ public class SMPArchetypes {
     public static final Supplier<JohnUltrakillArchetype> JOHN_ULTRAKILL =
             ARCHETYPES.register("john_ultrakill", JohnUltrakillArchetype::new);
 
+    public static final Supplier<DarkNinjaArchetype> DARKNINJA =
+            ARCHETYPES.register("darkninja", DarkNinjaArchetype::new);
 
     public static void register(IEventBus eventBus)
     {
