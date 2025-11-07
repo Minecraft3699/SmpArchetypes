@@ -1,6 +1,5 @@
 package com.mc3699.smparch.archetype.darkninja;
 
-import dev.wendigodrip.thebrokenscript.entity.tbe.TheBrokenEndEntity;
 import net.mc3699.provenance.ability.foundation.AmbientAbility;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -13,22 +12,38 @@ import net.minecraft.world.phys.AABB;
 import java.util.List;
 
 public class MoonsPunishment extends AmbientAbility {
-    // TODO: only run the tick code every 2 seconds or something to reduce stress, probably using modulo operator
+
+    private int tickCount = 0;
+
     @Override
     public void tick(ServerPlayer player) {
-        ServerLevel level = player.serverLevel();
-        int phase = level.getMoonPhase();
-        if (phase == 2 || phase == 3 || phase == 5 || phase == 6) {
-            // meant to give you weakness 1 on Third Quarter, Waning Crescent, Waxing Crescent, and First Quarter moon phases
-            player.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 20, 0));
-        } else if (phase == 4) {
-            // meant to give you weakness 2 and slowness 1 on a full moon
-            player.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 20, 1));
-            player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 20, 0));
-        }
-        // meant to give you weakness 3, withering 1, and nausea 2 when being chased by TBE
-        /// COMMENT THIS PART OUT AND REMOVE THE TBE IMPORT IF YOU DO NOT WANT TO ADD TBS AS A DEPENDENCY vvv
-        AABB searchArea = player.getBoundingBox().inflate(200);
+
+        tickCount++;
+        if(tickCount > 15)
+        {
+            tickCount = 0;
+            ServerLevel level = player.serverLevel();
+            int phase = level.getMoonPhase();
+            if (phase == 2 || phase == 3 || phase == 5 || phase == 6) {
+                // meant to give you weakness 1 on Third Quarter, Waning Crescent, Waxing Crescent, and First Quarter moon phases
+                player.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 20, 0));
+            } else if (phase == 4) {
+                // meant to give you weakness 2 and slowness 1 on a full moon
+                player.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 20, 1));
+                player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 20, 0));
+            }
+            // meant to give you weakness 3, withering 1, and nausea 2 when being chased by TBE
+
+
+            // I really don't want a TBS dependency here, also running logic like this every tick is VERY expensive
+            // I made ur function run once every 1.5 seconds instead though so if I do change my mind on this
+            // The performance impact will be negligable. Very cool idea too - MC3699
+
+
+            /// COMMENT THIS PART OUT AND REMOVE THE TBE IMPORT IF YOU DO NOT WANT TO ADD TBS AS A DEPENDENCY vvv
+
+        /*
+                AABB searchArea = player.getBoundingBox().inflate(200);
         List<TheBrokenEndEntity> entities = level.getEntitiesOfClass(TheBrokenEndEntity.class,searchArea);
         entities.forEach(entity -> {
             assert entity.getTarget() != null;
@@ -38,7 +53,12 @@ public class MoonsPunishment extends AmbientAbility {
                 player.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 200, 1));
             }
         });
-        /// COMMENT THIS PART OUT AND REMOVE THE TBE IMPORT IF YOU DO NOT WANT TO ADD TBS AS A DEPENDENCY ^^^
+         */
+
+            /// COMMENT THIS PART OUT AND REMOVE THE TBE IMPORT IF YOU DO NOT WANT TO ADD TBS AS A DEPENDENCY ^^^
+        }
+
+
     }
 
     @Override
