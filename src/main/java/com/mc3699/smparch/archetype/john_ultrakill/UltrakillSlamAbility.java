@@ -59,7 +59,6 @@ public class UltrakillSlamAbility extends ToggleAbility {
             fallTime = 0;
             serverPlayer.fallDistance = 0;
             serverLevel.explode(serverPlayer, null, EXPLOSION_DAMAGE_CALCULATOR, serverPlayer.getX(), serverPlayer.getY(), serverPlayer.getZ(), 12.0F, false, Level.ExplosionInteraction.TRIGGER, ParticleTypes.GUST_EMITTER_LARGE, ParticleTypes.GUST_EMITTER_LARGE, SoundEvents.WIND_CHARGE_BURST);
-            this.setEnabled(false);
         }
 
 
