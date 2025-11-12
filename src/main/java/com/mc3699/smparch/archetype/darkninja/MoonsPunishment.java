@@ -11,9 +11,6 @@ import net.minecraft.world.effect.MobEffects;
 public class MoonsPunishment extends AmbientAbility {
 
     private int tickCount = 0;
-    MobEffectInstance weakness1 = new MobEffectInstance(MobEffects.WEAKNESS, 50, 0,true,false,true);
-    MobEffectInstance weakness2 = new MobEffectInstance(MobEffects.WEAKNESS, 50, 1, true, false, true);
-    MobEffectInstance slowness = new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 50, 0, true, false, true);
     @Override
     public void tick(ServerPlayer player) {
         tickCount++;
@@ -23,9 +20,12 @@ public class MoonsPunishment extends AmbientAbility {
             int phase = level.getMoonPhase();
             if (phase == 1 || phase == 2 || phase == 6 || phase == 7) {
                 // meant to give you weakness 1 on Third Quarter, Waning Crescent, Waxing Crescent, and First Quarter moon phases
+                MobEffectInstance weakness1 = new MobEffectInstance(MobEffects.WEAKNESS, 50, 0,true,false,true);
                 player.addEffect(weakness1);
             } else if (phase == 0) {
                 // meant to give you weakness 2 and slowness 1 on a full moon
+                MobEffectInstance weakness2 = new MobEffectInstance(MobEffects.WEAKNESS, 50, 1, true, false, true);
+                MobEffectInstance slowness = new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 50, 0, true, false, true);
                 player.addEffect(weakness2);
                 player.addEffect(slowness);
             }
