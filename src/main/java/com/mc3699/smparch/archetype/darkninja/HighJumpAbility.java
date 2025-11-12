@@ -24,10 +24,12 @@ public class HighJumpAbility extends ToggleAbility {
 
     @Override
     public boolean canExecute(ServerPlayer serverPlayer) { return true; }
+
     // This function is probably one of the most lazy ways to do this, maybe there's a better way to get what I want but this will work for now
     @Override
     public void tick(ServerPlayer player) {
         super.tick(player);
-        player.addEffect(new MobEffectInstance(MobEffects.JUMP, 20, 3));
+        MobEffectInstance jump = new MobEffectInstance(MobEffects.JUMP, 20, 3,true,false,true);
+        player.addEffect(jump);
     }
 }

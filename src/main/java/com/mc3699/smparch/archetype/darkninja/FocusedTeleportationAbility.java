@@ -9,8 +9,11 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.level.ClipContext;
+import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
+import net.neoforged.neoforge.event.EventHooks;
+import net.neoforged.neoforge.event.entity.EntityTeleportEvent;
 
 public class FocusedTeleportationAbility extends BaseAbility {
     @Override
@@ -20,7 +23,7 @@ public class FocusedTeleportationAbility extends BaseAbility {
 
     @Override
     public int getCooldown() {
-        return 20;
+        return 40;
     }
 
     @Override
@@ -33,32 +36,31 @@ public class FocusedTeleportationAbility extends BaseAbility {
         return ResourceLocation.fromNamespaceAndPath("minecraft","textures/item/ender_eye.png");
     }
 
-    // apparently Oscar_Savior already basically had this ability ready to go. That makes things SO much easier, unless I am clueless and this actually DOESN'T do what I want it to do.
     @Override
     public void execute(ServerPlayer player) {
         super.execute(player);
         Vec3 eyePos = player.getEyePosition();
         Vec3 look = player.getLookAngle();
-        Vec3 target = eyePos.add(look.scale(20));
+        Vec3 target = eyePos.add(look.scale(22));
         ServerLevel level = player.serverLevel();
 
         BlockHitResult hitResult = player.serverLevel().clip(new ClipContext(
-                eyePos, target,
-                ClipContext.Block.COLLIDER,
-                ClipContext.Fluid.NONE,
-                player
+            eyePos, target,
+            ClipContext.Block.COLLIDER,
+            ClipContext.Fluid.NONE,
+            player
         ));
 
         if (hitResult.getType() == BlockHitResult.Type.MISS) {
             ProvenanceDataHandler.changeAP(player, 2);
         } else {
-            Vec3 endPos = hitResult.getType() == BlockHitResult.Type.MISS
-                    ? target
-                    : hitResult.getLocation().subtract(look.scale(0.5));
-
-            player.teleportTo(endPos.x, endPos.y, endPos.z);
+            Vec3 endPos = hitResult.getLocation().subtract(look.scale(0.5));
+            EntityTeleportEvent.EnderEntity event = EventHooks.onEnderTeleport(player,endPos.x,endPos.y,endPos.z);
+            level.gameEvent(GameEvent.TELEPORT, event.getTarget(), GameEvent.Context.of(player));
+            player.teleportTo(event.getTargetX(), event.getTargetY(), event.getTargetZ());
             player.hurt(level.damageSources().fall(),5);
-            level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.PLAYER_TELEPORT, SoundSource.PLAYERS);
+            level.playSound(null, event.getTargetX(), event.getTargetY(), event.getTargetZ(), SoundEvents.PLAYER_TELEPORT, SoundSource.PLAYERS);
+            player.resetFallDistance();
         }
     }
 
