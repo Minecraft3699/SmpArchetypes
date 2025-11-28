@@ -82,7 +82,7 @@ public class ConfusionAbility extends BaseAbility {
     private static void fuckShitUp(LivingEntity[] entities, ServerPlayer player) {
 
         List<EntityType<?>> whitelist = BuiltInRegistries.ENTITY_TYPE.stream()
-                .filter(type -> type != EntityType.WOLF && type != EntityType.HORSE) // So that no one gets hurt.
+                .filter(type -> type != EntityType.WOLF && type != EntityType.HORSE && type != EntityType.CAT) // So that no one gets hurt.
                 .toList();
 
         Level level = player.serverLevel();
@@ -109,7 +109,7 @@ public class ConfusionAbility extends BaseAbility {
                     break;
                 case 2:
                     entity.teleportTo(entity.getX(),entity.getY() + 80, entity.getZ());
-                    entity.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING,3*20,2));
+                    entity.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING,5*20,2));
                     break;
                 case 3:
                     entity.igniteForSeconds(10);
