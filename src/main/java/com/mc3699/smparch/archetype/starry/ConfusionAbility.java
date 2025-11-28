@@ -108,7 +108,8 @@ public class ConfusionAbility extends BaseAbility {
                     level.playSound(null, new BlockPos(entity.getBlockX(),entity.getBlockY(), entity.getBlockZ()), SoundEvents.ALLAY_HURT, SoundSource.PLAYERS);
                     break;
                 case 2:
-                    entity.teleportTo(entity.getX(),entity.getY() + 100, entity.getZ());
+                    entity.teleportTo(entity.getX(),entity.getY() + 80, entity.getZ());
+                    entity.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING,3*20,2));
                     break;
                 case 3:
                     entity.igniteForSeconds(10);
