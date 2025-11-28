@@ -86,7 +86,6 @@ public class ConfusionAbility extends BaseAbility {
                 .toList();
 
         Level level = player.serverLevel();
-        Vec3 pPos = new Vec3(player.getX(), player.getY(), player.getZ());
 
         for(LivingEntity entity : entities) {
             if (!whitelist.contains(entity.getType())) return;
