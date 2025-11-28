@@ -57,22 +57,16 @@ public class ConfusionAbility extends BaseAbility {
     public void execute(ServerPlayer player) {
         super.execute(player);
 
-        Vec3 pPos = new Vec3(player.getX(), player.getY(), player.getZ());
-
         float radius = 15f; // Not actually radius, I'd call it "distance between box corners divided by two"
 
         Level level = player.serverLevel();
 
 
-        // Horrors beyond recognition incoming
-        AABB box = new AABB(
-                pPos.x - radius, pPos.y - radius, pPos.z - radius,
-                pPos.x + radius, pPos.y + radius, pPos.z + radius
-        );
+        AABB box = player.getBoundingBox().inflate(radius);
 
         List<LivingEntity> colEntities = level.getEntitiesOfClass(LivingEntity.class, box); // Entities that collide with the box
 
-        level.playSound(null, new BlockPos((int)pPos.x, (int)pPos.y, (int)pPos.z), SoundEvents.PORTAL_TRAVEL, SoundSource.PLAYERS);
+        level.playSound(null, player.getBlockPosBelowThatAffectsMyMovement().above(1), SoundEvents.PORTAL_TRAVEL, SoundSource.PLAYERS);
 
         ProvScheduler.schedule(40, () -> fuckShitUp(colEntities.toArray(new LivingEntity[0]), player));
 

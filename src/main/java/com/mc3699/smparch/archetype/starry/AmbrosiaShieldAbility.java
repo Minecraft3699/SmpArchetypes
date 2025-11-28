@@ -35,7 +35,7 @@ public class AmbrosiaShieldAbility extends ToggleAbility {
 
     @Override
     public float getUseCost() {
-        return 0.02f;
+        return 0.04f;
     }
 
     @Override
