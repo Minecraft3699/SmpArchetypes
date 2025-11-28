@@ -150,6 +150,6 @@ public class ConfusionAbility extends BaseAbility {
 
     @Override
     public int getCooldown() {
-        return 90 * 20;
+        return 240 * 20;
     }
 }
