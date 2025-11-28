@@ -3,39 +3,32 @@ package com.mc3699.smparch.archetype.starry;
 import com.mc3699.smparch.SMPArch;
 import net.mc3699.provenance.ability.foundation.BaseAbility;
 import net.mc3699.provenance.util.ProvScheduler;
-import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
-import net.minecraft.core.Registry;
+import net.minecraft.core.particles.ParticleOptions;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LightningBolt;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 
 import java.util.List;
-import java.util.Objects;
-import java.util.stream.Collectors;
 
 public class ConfusionAbility extends BaseAbility {
     // Description: Does random things to entities within 15 blocks or so
-    // Possible events: Nothing; Lightning bolt; Random vanilla effect; Teleport 100 blocks up; Ignite for 10 seconds
+    // Possible events: Nothing; Lightning bolt; Random vanilla effect; Teleport 80 blocks up; Ignite for 10 seconds
     // The user himself is not safe from the consequences, so I think it's pretty fair.
 
     @Override
@@ -57,7 +50,7 @@ public class ConfusionAbility extends BaseAbility {
     public void execute(ServerPlayer player) {
         super.execute(player);
 
-        float radius = 15f; // Not actually radius, I'd call it "distance between box corners divided by two"
+        float radius = 15f;
 
         Level level = player.serverLevel();
 
@@ -66,9 +59,10 @@ public class ConfusionAbility extends BaseAbility {
 
         List<LivingEntity> colEntities = level.getEntitiesOfClass(LivingEntity.class, box); // Entities that collide with the box
 
-        level.playSound(null, player.getBlockPosBelowThatAffectsMyMovement().above(1), SoundEvents.PORTAL_TRAVEL, SoundSource.PLAYERS);
+        level.playSound(null, player.getBlockPosBelowThatAffectsMyMovement().above(1), SoundEvents.PORTAL_TRAVEL, SoundSource.PLAYERS, 0.5f, 1);
+        spawnParticles((ServerLevel) level, ParticleTypes.REVERSE_PORTAL, player.position());
 
-        ProvScheduler.schedule(40, () -> fuckShitUp(colEntities.toArray(new LivingEntity[0]), player));
+        ProvScheduler.schedule(5*20, () -> fuckShitUp(colEntities.toArray(new LivingEntity[0]), player));
 
 
     }
@@ -90,31 +84,52 @@ public class ConfusionAbility extends BaseAbility {
             // couldn't bother making a weighted choice system
             switch (choice) {
                 case 0:
-                    entity.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 20, 0)); // 1 second so that you don't burn
+                    entity.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 40, 0)); // 2 seconds so that you don't burn
 
                     LightningBolt bolt = new LightningBolt(EntityType.LIGHTNING_BOLT, level);
-                    bolt.setPos(entity.getX(),entity.getY(),entity.getZ());
+                    bolt.setPos(entity.position());
                     level.addFreshEntity(bolt);
+
+                    spawnParticles(player.serverLevel(), ParticleTypes.CLOUD, entity.position());
+
                     break;
                 case 1:
                     addRandomEffect(entity);
+
+                    spawnParticles(player.serverLevel(), ParticleTypes.GLOW, entity.position());
+
                     entity.jumpFromGround();
-                    level.playSound(null, new BlockPos(entity.getBlockX(),entity.getBlockY(), entity.getBlockZ()), SoundEvents.ALLAY_HURT, SoundSource.PLAYERS);
+                    level.playSound(null, entity.getBlockPosBelowThatAffectsMyMovement().above(1), SoundEvents.ALLAY_HURT, SoundSource.PLAYERS);
                     break;
                 case 2:
                     entity.teleportTo(entity.getX(),entity.getY() + 80, entity.getZ());
                     entity.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING,5*20,2));
+
+                    spawnParticles(player.serverLevel(), ParticleTypes.ENCHANT, entity.position());
+
                     break;
                 case 3:
                     entity.igniteForSeconds(10);
                     entity.jumpFromGround();
 
-                    level.playSound(null, new BlockPos(entity.getBlockX(),entity.getBlockY(), entity.getBlockZ()), SoundEvents.ANVIL_HIT, SoundSource.PLAYERS);
+                    spawnParticles(player.serverLevel(), ParticleTypes.FLAME, entity.position());
+
+                    level.playSound(null, entity.getBlockPosBelowThatAffectsMyMovement().above(1), SoundEvents.ANVIL_HIT, SoundSource.PLAYERS);
                     break;
             }
         }
 
         level.playSound(null, player.getBlockPosBelowThatAffectsMyMovement().above(1), SoundEvents.PLAYER_TELEPORT, SoundSource.PLAYERS);
+    }
+
+    private static void spawnParticles(ServerLevel level, ParticleOptions type, Vec3 pos) {
+        level.sendParticles(
+                type,
+                pos.x, pos.y, pos.z,
+                60,  // count
+                2, 2, 2,  // offsets
+                0.05  // speed
+        );
     }
 
     // This is single-handedly the most confusing piece of code I've ever written in my entire life
