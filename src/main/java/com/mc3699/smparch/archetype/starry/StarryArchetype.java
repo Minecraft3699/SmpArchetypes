@@ -26,6 +26,7 @@ public class StarryArchetype extends BaseArchetype {
     @Override
     public HashMap<Integer, BaseAbility> getPlayerAbilities() {
         HashMap<Integer, BaseAbility> abilities = new LinkedHashMap<>();
+        //abilities.put(4, SMPAbilities.FOCUS.get());
         abilities.put(3, SMPAbilities.DASH.get());
         abilities.put(2, SMPAbilities.CONFUSION.get());
         abilities.put(1, SMPAbilities.AMBROSIA.get());

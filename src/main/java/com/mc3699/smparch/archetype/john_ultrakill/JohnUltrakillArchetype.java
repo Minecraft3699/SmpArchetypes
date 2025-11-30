@@ -27,6 +27,7 @@ public class JohnUltrakillArchetype extends BaseArchetype {
         HashMap<Integer, BaseAbility> abilities = new LinkedHashMap<>();
         abilities.put(1, SMPAbilities.ULTRAKILL_DASH.get());
         abilities.put(2, SMPAbilities.ULTRAKILL_SLAM.get());
+        abilities.put(3, SMPAbilities.ULTRAKILL_FEEDBACKER.get());
         return abilities;
     }
 

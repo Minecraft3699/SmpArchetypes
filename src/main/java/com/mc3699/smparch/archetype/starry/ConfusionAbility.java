@@ -84,9 +84,8 @@ public class ConfusionAbility extends BaseAbility {
             // couldn't bother making a weighted choice system
             switch (choice) {
                 case 0:
-                    entity.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 40, 0)); // 2 seconds so that you don't burn
-
                     LightningBolt bolt = new LightningBolt(EntityType.LIGHTNING_BOLT, level);
+                    bolt.setVisualOnly(true);
                     bolt.setPos(entity.position());
                     level.addFreshEntity(bolt);
 

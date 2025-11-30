@@ -62,7 +62,7 @@ public class AmbrosiaShieldAbility extends ToggleAbility {
         super.tick(player);
 
         spawnParticles(player.serverLevel(),player.position().add(0,1,0));
-        player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 20, 100));
+        player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 20, 4));
         player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 20, 2));
         player.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 100, 1));
     }

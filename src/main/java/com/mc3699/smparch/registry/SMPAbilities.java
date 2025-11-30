@@ -15,6 +15,7 @@ import com.mc3699.smparch.archetype.growth.GrowthDebuff;
 import com.mc3699.smparch.archetype.growth.NatureGiftAbility;
 import com.mc3699.smparch.archetype.growth.NatureSightAbility;
 import com.mc3699.smparch.archetype.john_ultrakill.UltrakillDashAbility;
+import com.mc3699.smparch.archetype.john_ultrakill.UltrakillFeedbackerAbility;
 import com.mc3699.smparch.archetype.john_ultrakill.UltrakillSlamAbility;
 import com.mc3699.smparch.archetype.nightheart.RandomTeleportAbility;
 import com.mc3699.smparch.archetype.oscar_savior.BlinkAbility;
@@ -25,6 +26,7 @@ import com.mc3699.smparch.archetype.starry.FocusAbility;
 import com.mc3699.smparch.archetype.terra.HeartbeatAbility;
 import com.mc3699.smparch.archetype.terra.SolarSurgeAbility;
 import com.mc3699.smparch.generic_abilities.DashAbility;
+import com.mc3699.smparch.generic_abilities.InvisTestAbility;
 import com.mc3699.smparch.generic_abilities.WallClimbAbility;
 import net.mc3699.provenance.ProvenanceRegistries;
 import net.mc3699.provenance.ability.foundation.BaseAbility;
@@ -38,6 +40,8 @@ public class SMPAbilities {
     public static final DeferredRegister<BaseAbility> ABILITIES =
             DeferredRegister.create(ProvenanceRegistries.ABILITY_REGISTRY, SMPArch.MODID);
 
+    public static final Supplier<InvisTestAbility> INVIS_TEST =
+            ABILITIES.register("vanish", InvisTestAbility::new);
 
     public static final Supplier<RandomTeleportAbility> RANDOM_TELEPORT =
             ABILITIES.register("random_teleport", RandomTeleportAbility::new);
@@ -92,6 +96,9 @@ public class SMPAbilities {
 
     public static final Supplier<UltrakillSlamAbility> ULTRAKILL_SLAM =
             ABILITIES.register("ultrakill_slam", UltrakillSlamAbility::new);
+
+    public static final Supplier<UltrakillFeedbackerAbility> ULTRAKILL_FEEDBACKER =
+            ABILITIES.register("ultrakill_feedbacker", UltrakillFeedbackerAbility::new);
 
     public static final Supplier<FocusedTeleportationAbility> FOCUSED_TELEPORTATION =
             ABILITIES.register("focused_teleportation", FocusedTeleportationAbility::new);
