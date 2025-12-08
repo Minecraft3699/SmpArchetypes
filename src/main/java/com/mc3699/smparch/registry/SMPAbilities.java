@@ -14,6 +14,9 @@ import com.mc3699.smparch.archetype.firelight.DragonLeapAbility;
 import com.mc3699.smparch.archetype.growth.GrowthDebuff;
 import com.mc3699.smparch.archetype.growth.NatureGiftAbility;
 import com.mc3699.smparch.archetype.growth.NatureSightAbility;
+import com.mc3699.smparch.archetype.heaven.BlackoutAbility;
+import com.mc3699.smparch.archetype.heaven.ContagionAbility;
+import com.mc3699.smparch.archetype.heaven.DisruptionAbility;
 import com.mc3699.smparch.archetype.john_ultrakill.UltrakillDashAbility;
 import com.mc3699.smparch.archetype.john_ultrakill.UltrakillFeedbackerAbility;
 import com.mc3699.smparch.archetype.john_ultrakill.UltrakillSlamAbility;
@@ -47,6 +50,9 @@ public class SMPAbilities {
     public static final Supplier<RandomTeleportAbility> RANDOM_TELEPORT =
             ABILITIES.register("random_teleport", RandomTeleportAbility::new);
 
+    public static final Supplier<ContagionAbility> CONTAGION =
+            ABILITIES.register("contagion", ContagionAbility::new);
+
     public static final Supplier<DashAbility> DASH =
             ABILITIES.register("dash", DashAbility::new);
 
@@ -59,11 +65,17 @@ public class SMPAbilities {
     public static final Supplier<TendrilsAbility> TENDRILS =
             ABILITIES.register("tendrils", TendrilsAbility::new);
 
+    public static final Supplier<BlackoutAbility> BLACKOUT =
+            ABILITIES.register("blackout", BlackoutAbility::new);
+
     public static final Supplier<BlinkAbility> BLINK =
             ABILITIES.register("blink", BlinkAbility::new);
 
     public static final Supplier<DeterminationAbility> DETERMINATION =
             ABILITIES.register("determination", DeterminationAbility::new);
+
+    public static final Supplier<DisruptionAbility> DISRUPTION =
+            ABILITIES.register("disruption", DisruptionAbility::new);
 
     public static final Supplier<BloxShieldAbility> BLOX_SHIELD =
             ABILITIES.register("blox_shield", BloxShieldAbility::new);
