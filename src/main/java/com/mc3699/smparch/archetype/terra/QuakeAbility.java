@@ -12,6 +12,8 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
@@ -24,8 +26,6 @@ public class QuakeAbility extends BaseAbility {
 
     private static final int waitTime = 3 * 20;
     private static final float range = 6;
-
-    float oldSpeed = 0;
 
     @Override
     public float getUseCost() {
@@ -48,9 +48,7 @@ public class QuakeAbility extends BaseAbility {
                 2f  // speed
         );
 
-        oldSpeed = player.getAbilities().getWalkingSpeed();
-        player.getAbilities().setWalkingSpeed(0f);
-        player.onUpdateAbilities();
+        player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, waitTime, 4, false, false));
 
         level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.WARDEN_SONIC_CHARGE, SoundSource.PLAYERS);
 
@@ -96,8 +94,6 @@ public class QuakeAbility extends BaseAbility {
 
 
         }
-        plr.getAbilities().setWalkingSpeed(oldSpeed);
-        plr.onUpdateAbilities();
     }
 
 
