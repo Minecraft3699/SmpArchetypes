@@ -24,6 +24,7 @@ import com.mc3699.smparch.archetype.starry.AirJumpAbility;
 import com.mc3699.smparch.archetype.starry.CessationAbility;
 import com.mc3699.smparch.archetype.starry.ConfusionAbility;
 import com.mc3699.smparch.archetype.terra.HeartbeatAbility;
+import com.mc3699.smparch.archetype.terra.QuakeAbility;
 import com.mc3699.smparch.archetype.terra.SolarSurgeAbility;
 import com.mc3699.smparch.generic_abilities.DashAbility;
 import com.mc3699.smparch.generic_abilities.InvisTestAbility;
@@ -90,6 +91,9 @@ public class SMPAbilities {
 
     public static final Supplier<SolarSurgeAbility> SOLAR_SURGE =
             ABILITIES.register("solar_surge", SolarSurgeAbility::new);
+
+    public static final Supplier<QuakeAbility> QUAKE =
+            ABILITIES.register("quake", QuakeAbility::new);
 
     public static final Supplier<UltrakillDashAbility> ULTRAKILL_DASH =
             ABILITIES.register("ultrakill_dash", UltrakillDashAbility::new);
