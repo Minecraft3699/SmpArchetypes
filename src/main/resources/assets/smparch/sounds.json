@@ -7,6 +7,14 @@
     ]
   },
 
+  "disruption": {
+    "sounds": [
+      {
+        "name": "smparch:disruption"
+      }
+    ]
+  },
+
   "slam_fall": {
     "sounds": [
       {

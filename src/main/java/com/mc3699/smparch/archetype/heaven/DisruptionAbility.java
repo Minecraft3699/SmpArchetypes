@@ -1,10 +1,14 @@
 package com.mc3699.smparch.archetype.heaven;
 
+import com.mc3699.smparch.SMPArch;
+import com.mc3699.smparch.registry.SMPSounds;
 import net.mc3699.provenance.ability.foundation.BaseAbility;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
@@ -32,18 +36,24 @@ public class DisruptionAbility extends BaseAbility {
         List<LivingEntity> effectEntities = serverLevel.getEntitiesOfClass(LivingEntity.class, range);
 
         effectEntities.forEach(entity -> {
-            if(!entity.is(player))
-            {
-                entity.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 6*20, 2));
-                entity.addEffect(new MobEffectInstance(MobEffects.DARKNESS, 6*20, 2));
-                entity.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 6*20, 2));
-                entity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 6*20, 2));
+            if (!entity.is(player)) {
+                entity.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 8 * 20, 2));
+                entity.addEffect(new MobEffectInstance(MobEffects.DARKNESS, 8 * 20, 2));
+                entity.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 8 * 20, 2));
+                entity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 8 * 20, 2));
             }
         });
+        serverLevel.playSound(null, player.getBlockPosBelowThatAffectsMyMovement().above(1), SMPSounds.DISRUPTION.value(), SoundSource.PLAYERS, 6, 1);
     }
 
     @Override
     public boolean canExecute(ServerPlayer serverPlayer) {
         return true;
+    }
+
+    @Override
+    public ResourceLocation getIcon() {
+        return ResourceLocation.fromNamespaceAndPath(SMPArch.MODID, "textures/ability_icon/disruption.png");
+
     }
 }
