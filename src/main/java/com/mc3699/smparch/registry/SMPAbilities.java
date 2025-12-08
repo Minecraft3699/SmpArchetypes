@@ -23,9 +23,9 @@ import com.mc3699.smparch.archetype.john_ultrakill.UltrakillSlamAbility;
 import com.mc3699.smparch.archetype.nightheart.RandomTeleportAbility;
 import com.mc3699.smparch.archetype.oscar_savior.BlinkAbility;
 import com.mc3699.smparch.archetype.oscar_savior.DeterminationAbility;
-import com.mc3699.smparch.archetype.starry.AmbrosiaShieldAbility;
+import com.mc3699.smparch.archetype.starry.AirJumpAbility;
+import com.mc3699.smparch.archetype.starry.CessationAbility;
 import com.mc3699.smparch.archetype.starry.ConfusionAbility;
-import com.mc3699.smparch.archetype.starry.FocusAbility;
 import com.mc3699.smparch.archetype.terra.HeartbeatAbility;
 import com.mc3699.smparch.archetype.terra.SolarSurgeAbility;
 import com.mc3699.smparch.generic_abilities.DashAbility;
@@ -127,11 +127,11 @@ public class SMPAbilities {
     public static final Supplier<ConfusionAbility> CONFUSION =
             ABILITIES.register("confusion", ConfusionAbility::new);
 
-    public static final Supplier<AmbrosiaShieldAbility> AMBROSIA =
-            ABILITIES.register("ambrosia", AmbrosiaShieldAbility::new);
+    public static final Supplier<CessationAbility> CESSATION =
+            ABILITIES.register("cessation", CessationAbility::new);
 
-    public static final Supplier<FocusAbility> FOCUS =
-            ABILITIES.register("focus", FocusAbility::new);
+    public static final Supplier<AirJumpAbility> AIR_JUMP =
+            ABILITIES.register("air_jump", AirJumpAbility::new);
 
 
     public static void register(IEventBus eventBus) { ABILITIES.register(eventBus); }

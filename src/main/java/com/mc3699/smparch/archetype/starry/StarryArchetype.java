@@ -1,12 +1,10 @@
 package com.mc3699.smparch.archetype.starry;
 
-import com.mc3699.smparch.SMPArch;
 import com.mc3699.smparch.registry.SMPAbilities;
 import net.mc3699.provenance.ability.foundation.AmbientAbility;
 import net.mc3699.provenance.ability.foundation.BaseAbility;
 import net.mc3699.provenance.archetype.foundation.BaseArchetype;
 import net.minecraft.network.chat.Component;
-import org.apache.http.cookie.SM;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -27,9 +25,9 @@ public class StarryArchetype extends BaseArchetype {
     public HashMap<Integer, BaseAbility> getPlayerAbilities() {
         HashMap<Integer, BaseAbility> abilities = new LinkedHashMap<>();
         //abilities.put(4, SMPAbilities.FOCUS.get());
-        abilities.put(3, SMPAbilities.DASH.get());
+        abilities.put(3, SMPAbilities.AIR_JUMP.get());
         abilities.put(2, SMPAbilities.CONFUSION.get());
-        abilities.put(1, SMPAbilities.AMBROSIA.get());
+        abilities.put(1, SMPAbilities.CESSATION.get());
         return abilities;
     }
 
