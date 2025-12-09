@@ -1,6 +1,5 @@
 package com.mc3699.smparch.archetype.terra;
 
-import com.mc3699.smparch.SMPArch;
 import com.mc3699.smparch.registry.SMPAbilities;
 import net.mc3699.provenance.ability.foundation.AmbientAbility;
 import net.mc3699.provenance.ability.foundation.BaseAbility;
@@ -27,6 +26,7 @@ public class TerraArchetype extends BaseArchetype {
         HashMap<Integer, BaseAbility> abilities = new LinkedHashMap<>();
         abilities.put(1, SMPAbilities.HEARTBEAT.get());
         abilities.put(2, SMPAbilities.SOLAR_SURGE.get());
+        abilities.put(3, SMPAbilities.QUAKE.get());
         return abilities;
     }
 
