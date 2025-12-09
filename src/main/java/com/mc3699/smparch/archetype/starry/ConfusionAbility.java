@@ -87,7 +87,7 @@ public class ConfusionAbility extends BaseAbility {
                 .toList();
 
 
-        int choice = level.random.nextInt(5);
+        int choice = level.random.nextInt(6);
 
 
         for (LivingEntity entity : entities) {
