@@ -29,14 +29,9 @@ public class InvisTestAbility extends ToggleAbility {
 
         super.setEnabled(player, slot, enabled);
 
-        if (enabled) {
-            player.setInvisible(true);
-            player.setSilent(true);
-            player.displayClientMessage(Component.literal("§7You have vanished."), true);
-        } else {
-            player.setInvisible(false);
-            player.setSilent(false);
-            player.displayClientMessage(Component.literal("§aYou are visible again."), true);
-        }
+        player.setInvisible(enabled);
+        player.setSilent(enabled);
+        player.displayClientMessage(Component.literal(enabled ? "§7You have vanished." : "§aYou are visible again."), true);
+
     }
 }

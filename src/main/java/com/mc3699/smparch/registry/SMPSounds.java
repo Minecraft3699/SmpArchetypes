@@ -12,6 +12,8 @@ public class SMPSounds {
     public static final DeferredRegister<SoundEvent> SOUNDS =
             DeferredRegister.create(BuiltInRegistries.SOUND_EVENT, SMPArch.MODID);
 
+    public static final Holder<SoundEvent> DISRUPTION = SOUNDS.register("disruption", SoundEvent::createVariableRangeEvent);
+
     public static final Holder<SoundEvent> HEARTBEAT = SOUNDS.register("heartbeat", SoundEvent::createVariableRangeEvent);
 
     public static final Holder<SoundEvent> SLAM_FALL = SOUNDS.register("slam_fall", SoundEvent::createVariableRangeEvent);
