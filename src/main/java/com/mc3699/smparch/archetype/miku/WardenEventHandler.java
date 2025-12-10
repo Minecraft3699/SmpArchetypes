@@ -60,7 +60,7 @@ public class WardenEventHandler {
     }
 
     private static boolean hasActiveAidFromBelow(Player player) {
-        return ProvenanceDataHandler.getAbility(player, 8) instanceof AidFromBelowAbility;
+        return ProvenanceDataHandler.getAbilities(player).stream().anyMatch(ability -> ability instanceof AidFromBelowAbility);
     }
     @SubscribeEvent
     public static void onWardenDrops(LivingDropsEvent event) {

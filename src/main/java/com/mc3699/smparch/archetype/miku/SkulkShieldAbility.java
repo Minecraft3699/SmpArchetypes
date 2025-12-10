@@ -19,10 +19,11 @@ public class SkulkShieldAbility extends BaseAbility {
         return Component.literal("Skulk Shield");
     }
 
-
+    // "Summons a 5x3x1 barrier of Sculk Blocks 2 blocks in front of the user"
+    // MAKE SURE THIS DOES NOT GRIEF ANYTHING
 
     @Override
-    public boolean canExecute(ServerPlayer serverPlayer) {
+    public boolean canExecute(ServerPlayer player) {
         return true;
     }
 

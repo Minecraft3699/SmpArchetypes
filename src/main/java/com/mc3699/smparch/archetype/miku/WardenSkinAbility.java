@@ -28,7 +28,7 @@ public class WardenSkinAbility extends BaseAbility {
     }
 
     @Override
-    public boolean canExecute(ServerPlayer serverPlayer) {
+    public boolean canExecute(ServerPlayer player) {
         return true;
     }
 

@@ -19,10 +19,10 @@ public class StrongLegsHeavyArmsAbility extends BaseAbility {
         return Component.literal("Strong Legs, Heavy Arms");
     }
 
-
+    // "Jump 5 blocks high and slam down, dealing AOE damage (5 Attack Damage)."
 
     @Override
-    public boolean canExecute(ServerPlayer serverPlayer) {
+    public boolean canExecute(ServerPlayer player) {
         return true;
     }
 

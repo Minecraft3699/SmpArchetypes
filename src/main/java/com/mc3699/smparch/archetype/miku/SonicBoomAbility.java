@@ -19,10 +19,10 @@ public class SonicBoomAbility extends BaseAbility {
         return Component.literal("Sonic Boom");
     }
 
-
+    // "Create a Warden's Sonic Boom (With 8 Damage instead of 16 like base) at a target"
 
     @Override
-    public boolean canExecute(ServerPlayer serverPlayer) {
+    public boolean canExecute(ServerPlayer player) {
         return true;
     }
 

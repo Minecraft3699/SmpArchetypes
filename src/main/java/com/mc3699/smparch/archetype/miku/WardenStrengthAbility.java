@@ -19,10 +19,10 @@ public class WardenStrengthAbility extends BaseAbility {
         return Component.literal("Warden Strength");
     }
 
-
+    // "Deal 10 extra damage with One attack"
 
     @Override
-    public boolean canExecute(ServerPlayer serverPlayer) {
+    public boolean canExecute(ServerPlayer player) {
         return true;
     }
 
