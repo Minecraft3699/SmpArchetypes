@@ -23,7 +23,7 @@ public class ExperienceCrystallizationAbility extends BaseAbility {
     public float getUseCost() { return 3; }
 
     @Override
-    public int getCooldown() { return 10; }
+    public int getCooldown() { return 20; }
 
     @Override
     public Component getName() {
