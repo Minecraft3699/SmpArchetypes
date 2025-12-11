@@ -12,7 +12,7 @@ public class SkulkShieldAbility extends BaseAbility {
     }
 
     @Override
-    public int getCooldown() { return 20*20; }
+    public int getCooldown() { return 20*40; }
 
     @Override
     public Component getName() {
@@ -23,7 +23,7 @@ public class SkulkShieldAbility extends BaseAbility {
     // MAKE SURE THIS DOES NOT GRIEF ANYTHING
 
     @Override
-    public boolean canExecute(ServerPlayer player) {
+    public boolean canExecute(ServerPlayer serverPlayer) {
         return true;
     }
 

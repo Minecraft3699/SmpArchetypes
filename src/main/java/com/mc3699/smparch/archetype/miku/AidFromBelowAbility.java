@@ -1,6 +1,7 @@
 package com.mc3699.smparch.archetype.miku;
 
 import net.mc3699.provenance.ability.foundation.BaseAbility;
+import net.mc3699.provenance.util.ProvScheduler;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -13,6 +14,7 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.entity.Pose;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.monster.warden.Warden;
 import net.minecraft.world.level.Level;
@@ -27,7 +29,7 @@ public class AidFromBelowAbility extends BaseAbility {
     }
 
     @Override
-    public int getCooldown() { return 180*20; }
+    public int getCooldown() { return 180*40; }
 
     @Override
     public Component getName() {
@@ -40,8 +42,9 @@ public class AidFromBelowAbility extends BaseAbility {
 
     private Warden summonedWarden = null;
     private int wardenLifetime = 0;
+    private boolean startedDigging = false;
 
-    private BlockPos findSafeSpawnPosition(Level level, Vec3 center) {
+    private static BlockPos findSafeSpawnPosition(Level level, Vec3 center) {
         BlockPos centerPos = BlockPos.containing(center);
 
         for (int attempts = 0; attempts < 20; attempts++) {
@@ -80,13 +83,13 @@ public class AidFromBelowAbility extends BaseAbility {
 
                 warden.finalizeSpawn(level,
                         level.getCurrentDifficultyAt(warden.blockPosition()),
-                        MobSpawnType.COMMAND, null);
+                        MobSpawnType.TRIGGERED, null);
 
                 warden.getAttribute(Attributes.MAX_HEALTH).setBaseValue(75.0);
                 warden.setHealth(75.0f);
                 warden.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(15.0);
 
-                MobEffectInstance weaknessEffect = new MobEffectInstance(MobEffects.WEAKNESS, -1, 1, false, true, true);
+                MobEffectInstance weaknessEffect = new MobEffectInstance(MobEffects.WEAKNESS, -1, 1, false, false, true);
 
                 warden.addEffect(weaknessEffect);
                 warden.setPersistenceRequired();
@@ -106,17 +109,23 @@ public class AidFromBelowAbility extends BaseAbility {
     }
 
     @Override
-    public void backgroundTick(ServerPlayer player) {
-        ServerLevel level = player.serverLevel();
-        if (!level.isClientSide && summonedWarden != null && summonedWarden.isAlive()) {
-            wardenLifetime++;
-            if (wardenLifetime >= DESPAWN_TICKS) {
-                LOGGER.debug("he gone");
-                summonedWarden.remove(Entity.RemovalReason.DISCARDED);
-                summonedWarden = null;
-                wardenLifetime = 0;
-            }
-        }
+    public void backgroundTick(ServerPlayer serverPlayer) {
+        ServerLevel level = serverPlayer.serverLevel();
+        if (level.isClientSide || summonedWarden == null || !summonedWarden.isAlive()) return;
+        wardenLifetime++;
+        if (wardenLifetime < DESPAWN_TICKS) return;
+        if (startedDigging) return;
+        //LOGGER.debug("he gone");
+        summonedWarden.playSound(SoundEvents.WARDEN_DIG, 5.0F, 1.0F);
+        summonedWarden.setPose(Pose.DIGGING);
+        summonedWarden.removeFreeWill();
+        if (!startedDigging) ProvScheduler.schedule(6*20, () -> {
+            summonedWarden.remove(Entity.RemovalReason.DISCARDED);
+            summonedWarden = null;
+            wardenLifetime = 0;
+            startedDigging = false;
+        });
+        startedDigging = true;
     }
 
     @Override

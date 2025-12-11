@@ -19,7 +19,7 @@ public class DeepDarknessAbility extends BaseAbility {
     }
 
     @Override
-    public int getCooldown() { return 60*20; }
+    public int getCooldown() { return 60*40; }
 
     @Override
     public Component getName() {

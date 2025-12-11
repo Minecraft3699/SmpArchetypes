@@ -14,7 +14,7 @@ public class SkulkBlastAbility extends BaseAbility {
 
     @Override
     public int getCooldown() {
-        return 5*20;
+        return 5*40;
     }
 
     @Override
@@ -34,7 +34,7 @@ public class SkulkBlastAbility extends BaseAbility {
     }
 
     @Override
-    public boolean canExecute(ServerPlayer player) {
+    public boolean canExecute(ServerPlayer serverPlayer) {
         return true;
     }
 

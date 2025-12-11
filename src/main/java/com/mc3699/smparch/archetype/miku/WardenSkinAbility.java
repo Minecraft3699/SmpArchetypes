@@ -14,7 +14,7 @@ public class WardenSkinAbility extends BaseAbility {
     }
 
     @Override
-    public int getCooldown() { return 10*20; }
+    public int getCooldown() { return 10*40; }
 
     @Override
     public Component getName() {
