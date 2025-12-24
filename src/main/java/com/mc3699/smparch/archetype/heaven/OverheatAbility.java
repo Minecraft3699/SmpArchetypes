@@ -14,18 +14,13 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.level.ClipContext;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.EntityHitResult;
-import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 
 import java.util.Optional;
 
-import static net.minecraft.world.entity.projectile.ProjectileUtil.getEntityHitResult;
-
-public class ContagionAbility extends BaseAbility {
+public class OverheatAbility extends BaseAbility {
 
     @Override
     public float getUseCost() {
@@ -34,7 +29,7 @@ public class ContagionAbility extends BaseAbility {
 
     @Override
     public Component getName() {
-        return Component.literal("Contagion").withStyle(ChatFormatting.GREEN);
+        return Component.literal("Overheat").withStyle(ChatFormatting.GOLD);
     }
 
     @Override
@@ -70,8 +65,7 @@ public class ContagionAbility extends BaseAbility {
         if (entityHit != null) {
             Entity targetEntity = entityHit.getEntity();
             if (targetEntity instanceof LivingEntity livingTarget) {
-                livingTarget.addEffect(new MobEffectInstance(
-                        MobEffects.POISON, 12*20, 0));
+                targetEntity.setRemainingFireTicks(8 * 20);
                 player.playNotifySound(
                         SMPSounds.QUICKHACK.value(),
                         SoundSource.PLAYERS,
@@ -84,13 +78,19 @@ public class ContagionAbility extends BaseAbility {
             ProvenanceDataHandler.changeAP(player, 2f);
         }
     }
+
     @Override
     public ResourceLocation getIcon() {
-        return ResourceLocation.fromNamespaceAndPath("minecraft", "textures/mob_effect/poison.png");
+        return ResourceLocation.fromNamespaceAndPath("minecraft", "textures/block/fire_1.png");
     }
+
 
     @Override
     public boolean canExecute(ServerPlayer serverPlayer) {
         return true;
     }
+
 }
+
+
+
