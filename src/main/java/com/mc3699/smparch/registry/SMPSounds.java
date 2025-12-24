@@ -18,6 +18,8 @@ public class SMPSounds {
 
     public static final Holder<SoundEvent> SLAM_FALL = SOUNDS.register("slam_fall", SoundEvent::createVariableRangeEvent);
 
+    public static final Holder<SoundEvent> QUICKHACK = SOUNDS.register("qhdone", SoundEvent::createVariableRangeEvent);
+
     public static void register(IEventBus eventBus)
     {
         SOUNDS.register(eventBus);

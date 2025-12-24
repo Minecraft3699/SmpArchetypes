@@ -1,12 +1,15 @@
 package com.mc3699.smparch.archetype.heaven;
 
 import com.mc3699.smparch.SMPArch;
+import com.mc3699.smparch.registry.SMPSounds;
+import net.mc3699.provenance.ProvenanceDataHandler;
 import net.mc3699.provenance.ability.foundation.BaseAbility;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
@@ -38,7 +41,7 @@ public class ContagionAbility extends BaseAbility {
     public void execute(ServerPlayer player) {
         super.execute(player);
 
-        double range = 15.0;
+        double range = 30.0;
         Vec3 eyePos = player.getEyePosition();
         Vec3 look = player.getLookAngle();
         Vec3 endPos = eyePos.add(look.scale(range));
@@ -68,14 +71,22 @@ public class ContagionAbility extends BaseAbility {
             Entity targetEntity = entityHit.getEntity();
             if (targetEntity instanceof LivingEntity livingTarget) {
                 livingTarget.addEffect(new MobEffectInstance(
-                        MobEffects.POISON, 500, 0));
+                        MobEffects.POISON, 12*20, 0));
+                player.playNotifySound(
+                        SMPSounds.QUICKHACK.value(),
+                        SoundSource.PLAYERS,
+                        1.0f,
+                        1.0f
+                );
             }
         }
+        if (entityHit == null) {
+            ProvenanceDataHandler.changeAP(player, 2f);
+        }
     }
-
     @Override
     public ResourceLocation getIcon() {
-        return ResourceLocation.fromNamespaceAndPath(SMPArch.MODID, "textures/ability_icon/contagion.png");
+        return ResourceLocation.fromNamespaceAndPath("minecraft", "textures/mob_effect/poison.png");
     }
 
     @Override
