@@ -23,6 +23,7 @@ import com.mc3699.smparch.archetype.john_ultrakill.UltrakillSlamAbility;
 import com.mc3699.smparch.archetype.nightheart.RandomTeleportAbility;
 import com.mc3699.smparch.archetype.oscar_savior.BlinkAbility;
 import com.mc3699.smparch.archetype.oscar_savior.DeterminationAbility;
+import com.mc3699.smparch.archetype.pencil_html.EndStepAbility;
 import com.mc3699.smparch.archetype.starry.AirJumpAbility;
 import com.mc3699.smparch.archetype.starry.CessationAbility;
 import com.mc3699.smparch.archetype.starry.ConfusionAbility;
@@ -133,6 +134,8 @@ public class SMPAbilities {
     public static final Supplier<AirJumpAbility> AIR_JUMP =
             ABILITIES.register("air_jump", AirJumpAbility::new);
 
+    public static final Supplier<EndStepAbility> END_STEP =
+            ABILITIES.register("end_step", EndStepAbility::new);
 
     public static void register(IEventBus eventBus) { ABILITIES.register(eventBus); }
 

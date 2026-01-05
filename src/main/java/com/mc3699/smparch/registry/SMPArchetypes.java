@@ -11,7 +11,9 @@ import com.mc3699.smparch.archetype.heaven.HeavenArchetype;
 import com.mc3699.smparch.archetype.john_ultrakill.JohnUltrakillArchetype;
 import com.mc3699.smparch.archetype.nightheart.NightheartArchetype;
 import com.mc3699.smparch.archetype.oscar_savior.OscarSaviorArchetype;
+import com.mc3699.smparch.archetype.pencil_html.PencilHtmlArchetype;
 import com.mc3699.smparch.archetype.starry.StarryArchetype;
+import com.mc3699.smparch.archetype.tekkitdooood.TekkitdoooodArchetype;
 import com.mc3699.smparch.archetype.terra.TerraArchetype;
 import net.mc3699.provenance.ProvenanceRegistries;
 import net.mc3699.provenance.archetype.foundation.BaseArchetype;
@@ -61,6 +63,12 @@ public class SMPArchetypes {
 
     public static final Supplier<StarryArchetype> STARRY =
             ARCHETYPES.register("starry", StarryArchetype::new);
+
+    public static final Supplier<PencilHtmlArchetype> PENCIL_HTML =
+            ARCHETYPES.register("pencil_html", PencilHtmlArchetype::new);
+
+    public static final Supplier<TekkitdoooodArchetype> TEKKITDOOOOD =
+            ARCHETYPES.register("tekkitdooood", TekkitdoooodArchetype::new);
 
     public static void register(IEventBus eventBus)
     {
