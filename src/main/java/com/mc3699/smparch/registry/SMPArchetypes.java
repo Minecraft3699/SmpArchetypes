@@ -9,6 +9,7 @@ import com.mc3699.smparch.archetype.firelight.FirelightArchetype;
 import com.mc3699.smparch.archetype.growth.GrowthArchetype;
 import com.mc3699.smparch.archetype.heaven.HeavenArchetype;
 import com.mc3699.smparch.archetype.john_ultrakill.JohnUltrakillArchetype;
+import com.mc3699.smparch.archetype.miku.MikuArchetype;
 import com.mc3699.smparch.archetype.nightheart.NightheartArchetype;
 import com.mc3699.smparch.archetype.oscar_savior.OscarSaviorArchetype;
 import com.mc3699.smparch.archetype.pencil_html.PencilHtmlArchetype;
@@ -69,6 +70,8 @@ public class SMPArchetypes {
 
     public static final Supplier<TekkitdoooodArchetype> TEKKITDOOOOD =
             ARCHETYPES.register("tekkitdooood", TekkitdoooodArchetype::new);
+    public static final Supplier<MikuArchetype> MIKU =
+            ARCHETYPES.register("miku", MikuArchetype::new);
 
     public static void register(IEventBus eventBus)
     {

@@ -29,6 +29,10 @@ public class MoonsPunishment extends AmbientAbility {
                 MobEffectInstance slowness = new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 50, 0, true, false, true);
                 player.addEffect(weakness2);
                 player.addEffect(slowness);
+            } else if (phase == 8) {
+                // meant to provide immunity to weakness and slowness on a new moon
+                player.removeEffect(MobEffects.WEAKNESS);
+                player.removeEffect(MobEffects.MOVEMENT_SLOWDOWN);
             }
             tickCount = 0;
         }

@@ -1,4 +1,4 @@
-package com.mc3699.smparch.archetype.heaven;
+package com.mc3699.smparch.archetype.miku;
 
 import com.mc3699.smparch.registry.SMPAbilities;
 import net.mc3699.provenance.ability.foundation.AmbientAbility;
@@ -10,10 +10,10 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-public class HeavenArchetype extends BaseArchetype {
+public class MikuArchetype extends BaseArchetype {
     @Override
     public Component getName() {
-        return Component.literal("Heaven");
+        return Component.literal("Miku");
     }
 
     @Override
@@ -24,15 +24,21 @@ public class HeavenArchetype extends BaseArchetype {
     @Override
     public HashMap<Integer, BaseAbility> getPlayerAbilities() {
         HashMap<Integer, BaseAbility> abilities = new LinkedHashMap<>();
-        abilities.put(1, SMPAbilities.BLACKOUT.get());
-        abilities.put(2, SMPAbilities.DISRUPTION.get());
-        abilities.put(3, SMPAbilities.CONTAGION.get());
-        abilities.put(4, SMPAbilities.OVERHEAT.get());
+        abilities.put(1, SMPAbilities.SKULK_BLAST.get());
+        abilities.put(2, SMPAbilities.WARDEN_SKIN.get());
+        abilities.put(3, SMPAbilities.WARDEN_STRENGTH.get());
+        abilities.put(4, SMPAbilities.SONIC_BOOM.get());
+        abilities.put(5, SMPAbilities.STRONG_LEGS_HEAVY_ARMS.get());
+        abilities.put(6, SMPAbilities.DEEP_DARKNESS.get());
+        abilities.put(7, SMPAbilities.AID_FROM_BELOW.get());
+        //abilities.put(8, SMPAbilities.SKULK_SHIELD.get());
         return abilities;
     }
 
     @Override
     public List<AmbientAbility> getAmbientAbilities() {
-        return List.of();
+        return List.of(
+            SMPAbilities.ONE_WITH_THE_DARK.get()
+        );
     }
 }

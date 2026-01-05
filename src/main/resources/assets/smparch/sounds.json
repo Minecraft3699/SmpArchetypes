@@ -21,5 +21,12 @@
         "name": "smparch:slam_fall"
       }
     ]
+  },
+  "qhdone" : {
+    "sounds": [
+      {
+        "name": "smparch:qhdone"
+      }
+    ]
   }
 }
