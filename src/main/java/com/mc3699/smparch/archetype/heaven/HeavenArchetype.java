@@ -27,6 +27,7 @@ public class HeavenArchetype extends BaseArchetype {
         abilities.put(1, SMPAbilities.BLACKOUT.get());
         abilities.put(2, SMPAbilities.DISRUPTION.get());
         abilities.put(3, SMPAbilities.CONTAGION.get());
+        abilities.put(4, SMPAbilities.OVERHEAT.get());
         return abilities;
     }
 

@@ -17,6 +17,7 @@ import com.mc3699.smparch.archetype.growth.NatureSightAbility;
 import com.mc3699.smparch.archetype.heaven.BlackoutAbility;
 import com.mc3699.smparch.archetype.heaven.ContagionAbility;
 import com.mc3699.smparch.archetype.heaven.DisruptionAbility;
+import com.mc3699.smparch.archetype.heaven.OverheatAbility;
 import com.mc3699.smparch.archetype.john_ultrakill.UltrakillDashAbility;
 import com.mc3699.smparch.archetype.john_ultrakill.UltrakillFeedbackerAbility;
 import com.mc3699.smparch.archetype.john_ultrakill.UltrakillSlamAbility;
@@ -52,6 +53,9 @@ public class SMPAbilities {
 
     public static final Supplier<ContagionAbility> CONTAGION =
             ABILITIES.register("contagion", ContagionAbility::new);
+
+    public static final Supplier<OverheatAbility> OVERHEAT =
+            ABILITIES.register("overheat", OverheatAbility::new);
 
     public static final Supplier<DashAbility> DASH =
             ABILITIES.register("dash", DashAbility::new);
