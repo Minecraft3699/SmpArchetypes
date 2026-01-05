@@ -20,6 +20,7 @@ import com.mc3699.smparch.archetype.heaven.DisruptionAbility;
 import com.mc3699.smparch.archetype.john_ultrakill.UltrakillDashAbility;
 import com.mc3699.smparch.archetype.john_ultrakill.UltrakillFeedbackerAbility;
 import com.mc3699.smparch.archetype.john_ultrakill.UltrakillSlamAbility;
+import com.mc3699.smparch.archetype.miku.*;
 import com.mc3699.smparch.archetype.nightheart.RandomTeleportAbility;
 import com.mc3699.smparch.archetype.oscar_savior.BlinkAbility;
 import com.mc3699.smparch.archetype.oscar_savior.DeterminationAbility;
@@ -133,6 +134,32 @@ public class SMPAbilities {
     public static final Supplier<AirJumpAbility> AIR_JUMP =
             ABILITIES.register("air_jump", AirJumpAbility::new);
 
+    public static final Supplier<SkulkBlastAbility> SKULK_BLAST =
+            ABILITIES.register("skulk_blast", SkulkBlastAbility::new);
+
+    public static final Supplier<WardenSkinAbility> WARDEN_SKIN =
+            ABILITIES.register("warden_skin", WardenSkinAbility::new);
+
+    public static final Supplier<WardenStrengthAbility> WARDEN_STRENGTH =
+            ABILITIES.register("warden_strength", WardenStrengthAbility::new);
+
+    public static final Supplier<SonicBoomAbility> SONIC_BOOM =
+            ABILITIES.register("sonic_boom", SonicBoomAbility::new);
+
+    public static final Supplier<StrongLegsHeavyArmsAbility> STRONG_LEGS_HEAVY_ARMS =
+            ABILITIES.register("strong_legs_heavy_arms", StrongLegsHeavyArmsAbility::new);
+
+    public static final Supplier<SkulkShieldAbility> SKULK_SHIELD =
+            ABILITIES.register("skulk_shield", SkulkShieldAbility::new);
+
+    public static final Supplier<DeepDarknessAbility> DEEP_DARKNESS =
+            ABILITIES.register("deep_darkness", DeepDarknessAbility::new);
+
+    public static final Supplier<AidFromBelowAbility> AID_FROM_BELOW =
+            ABILITIES.register("aid_from_below", AidFromBelowAbility::new);
+
+    public static final Supplier<OneWithTheDark> ONE_WITH_THE_DARK =
+            ABILITIES.register("one_with_the_dark", OneWithTheDark::new);
 
     public static void register(IEventBus eventBus) { ABILITIES.register(eventBus); }
 
