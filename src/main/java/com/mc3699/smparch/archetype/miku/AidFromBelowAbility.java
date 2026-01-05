@@ -116,16 +116,16 @@ public class AidFromBelowAbility extends BaseAbility {
         if (wardenLifetime < DESPAWN_TICKS) return;
         if (startedDigging) return;
         //LOGGER.debug("he gone");
+        startedDigging = true;
         summonedWarden.playSound(SoundEvents.WARDEN_DIG, 5.0F, 1.0F);
         summonedWarden.setPose(Pose.DIGGING);
         summonedWarden.removeFreeWill();
-        if (!startedDigging) ProvScheduler.schedule(6*20, () -> {
+        ProvScheduler.schedule(6*20, () -> {
             summonedWarden.remove(Entity.RemovalReason.DISCARDED);
             summonedWarden = null;
             wardenLifetime = 0;
             startedDigging = false;
         });
-        startedDigging = true;
     }
 
     @Override

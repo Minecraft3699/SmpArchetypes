@@ -149,8 +149,9 @@ public class SMPAbilities {
     public static final Supplier<StrongLegsHeavyArmsAbility> STRONG_LEGS_HEAVY_ARMS =
             ABILITIES.register("strong_legs_heavy_arms", StrongLegsHeavyArmsAbility::new);
 
-    public static final Supplier<SkulkShieldAbility> SKULK_SHIELD =
-            ABILITIES.register("skulk_shield", SkulkShieldAbility::new);
+    /*public static final Supplier<SkulkShieldAbility> SKULK_SHIELD =
+            ABILITIES.register("skulk_shield", SkulkShieldAbility::new);*/
+    //Unimplemented ability commented out for now
 
     public static final Supplier<DeepDarknessAbility> DEEP_DARKNESS =
             ABILITIES.register("deep_darkness", DeepDarknessAbility::new);

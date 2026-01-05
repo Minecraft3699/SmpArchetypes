@@ -64,6 +64,7 @@ public class StrongLegsHeavyArmsAbility extends BaseAbility {
     void slam(ServerPlayer plr) {
         Level level = plr.serverLevel();
         inAir = false;
+        flyTime = 0;
 
         BlockParticleOption particle = new BlockParticleOption(ParticleTypes.DUST_PILLAR, Blocks.SCULK.defaultBlockState());
 

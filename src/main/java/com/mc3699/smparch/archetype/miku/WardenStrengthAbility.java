@@ -12,7 +12,7 @@ import java.util.*;
 
 
 public class WardenStrengthAbility extends BaseAbility {
-    public static final Map<Player, Float> NEXT_ATTACK_BONUS = new HashMap<>();
+    public static final Map<Player, Float> NEXT_ATTACK_BONUS = new WeakHashMap<>();
     @Override
     public float getUseCost() {
         return 1.5f;

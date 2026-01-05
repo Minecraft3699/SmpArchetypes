@@ -29,9 +29,9 @@ public class MikuArchetype extends BaseArchetype {
         abilities.put(3, SMPAbilities.WARDEN_STRENGTH.get());
         abilities.put(4, SMPAbilities.SONIC_BOOM.get());
         abilities.put(5, SMPAbilities.STRONG_LEGS_HEAVY_ARMS.get());
-        abilities.put(6, SMPAbilities.SKULK_SHIELD.get());
-        abilities.put(7, SMPAbilities.DEEP_DARKNESS.get());
-        abilities.put(8, SMPAbilities.AID_FROM_BELOW.get());
+        abilities.put(6, SMPAbilities.DEEP_DARKNESS.get());
+        abilities.put(7, SMPAbilities.AID_FROM_BELOW.get());
+        //abilities.put(8, SMPAbilities.SKULK_SHIELD.get());
         return abilities;
     }
 
