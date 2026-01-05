@@ -19,9 +19,10 @@ public class TekkitdoooodArchetype extends BaseArchetype {
         return List.of();
     }
 
+    //Cannot be too careful with null (also this is the way the human does it so uh yeah)
     @Override
     public HashMap<Integer, BaseAbility> getPlayerAbilities() {
-        return null;
+        return HashMap.newHashMap(0);
     }
 
     @Override
