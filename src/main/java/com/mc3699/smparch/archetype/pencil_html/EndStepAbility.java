@@ -169,7 +169,7 @@ public class EndStepAbility extends ToggleAbility {
             ));
         }
         spawnTeleportParticles(serverPlayer, serverPlayer.serverLevel());
-        if (serverPlayer.isShiftKeyDown()) {
+        if (serverPlayer.isShiftKeyDown() && this.teleport_position != null) {
             teleportPlayer(serverPlayer, this.teleport_position);
         }
 
