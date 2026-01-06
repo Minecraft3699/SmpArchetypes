@@ -28,6 +28,11 @@ public class DisruptionAbility extends BaseAbility {
     }
 
     @Override
+    public int getCooldown() {
+        return 8*40;
+    }
+
+    @Override
     public void execute(ServerPlayer player) {
         super.execute(player);
         AABB range = player.getBoundingBox().inflate(6);

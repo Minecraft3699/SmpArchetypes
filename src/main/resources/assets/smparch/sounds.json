@@ -22,10 +22,19 @@
       }
     ]
   },
+
   "qhdone" : {
     "sounds": [
       {
         "name": "smparch:qhdone"
+      }
+    ]
+  },
+
+  "blackout" : {
+    "sounds": [
+      {
+        "name": "smparch:blackout"
       }
     ]
   }
