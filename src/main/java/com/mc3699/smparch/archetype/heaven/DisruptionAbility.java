@@ -35,7 +35,7 @@ public class DisruptionAbility extends BaseAbility {
     @Override
     public void execute(ServerPlayer player) {
         super.execute(player);
-        AABB range = player.getBoundingBox().inflate(6);
+        AABB range = player.getBoundingBox().inflate(7);
         ServerLevel serverLevel = player.serverLevel();
 
         List<LivingEntity> effectEntities = serverLevel.getEntitiesOfClass(LivingEntity.class, range);
