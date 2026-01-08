@@ -20,6 +20,8 @@ public class SMPSounds {
 
     public static final Holder<SoundEvent> QUICKHACK = SOUNDS.register("qhdone", SoundEvent::createVariableRangeEvent);
 
+    public static final Holder<SoundEvent> BLACKOUT = SOUNDS.register("blackout", SoundEvent::createVariableRangeEvent);
+
     public static void register(IEventBus eventBus)
     {
         SOUNDS.register(eventBus);

@@ -33,6 +33,11 @@ public class OverheatAbility extends BaseAbility {
     }
 
     @Override
+    public int getCooldown() {
+        return 40;
+    }
+
+    @Override
     public void execute(ServerPlayer player) {
         super.execute(player);
 

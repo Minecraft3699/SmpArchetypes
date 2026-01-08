@@ -32,6 +32,7 @@ import com.mc3699.smparch.archetype.starry.ConfusionAbility;
 import com.mc3699.smparch.archetype.terra.HeartbeatAbility;
 import com.mc3699.smparch.archetype.terra.SolarSurgeAbility;
 import com.mc3699.smparch.generic_abilities.DashAbility;
+import com.mc3699.smparch.generic_abilities.FireballAbility;
 import com.mc3699.smparch.generic_abilities.InvisTestAbility;
 import com.mc3699.smparch.generic_abilities.WallClimbAbility;
 import net.mc3699.provenance.ProvenanceRegistries;
@@ -168,6 +169,10 @@ public class SMPAbilities {
 
     public static final Supplier<OneWithTheDark> ONE_WITH_THE_DARK =
             ABILITIES.register("one_with_the_dark", OneWithTheDark::new);
+
+    public static final Supplier<FireballAbility> FIREBALL =
+            ABILITIES.register("fireball", FireballAbility::new);
+
 
     public static void register(IEventBus eventBus) { ABILITIES.register(eventBus); }
 
