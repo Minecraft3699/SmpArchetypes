@@ -48,7 +48,7 @@ public class FireballAbility extends BaseAbility {
         fireball.setPos(spawnPos);
         fireball.setDeltaMovement(velocity);
         serverLevel.addFreshEntity(fireball);
-serverLevel.playSound(null, player.getBlockPosBelowThatAffectsMyMovement().above(1), SoundEvents.FIRECHARGE_USE, SoundSource.PLAYERS, 15, 1);
+serverLevel.playSound(null, player.getBlockPosBelowThatAffectsMyMovement().above(1), SoundEvents.FIRECHARGE_USE, SoundSource.PLAYERS, 1, 1);
     }
 
     @Override

@@ -48,7 +48,7 @@ public class DisruptionAbility extends BaseAbility {
                 entity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 8 * 20, 2));
             }
         });
-        serverLevel.playSound(null, player.getBlockPosBelowThatAffectsMyMovement().above(1), SMPSounds.DISRUPTION.value(), SoundSource.PLAYERS, 6, 1);
+        serverLevel.playSound(null, player.getBlockPosBelowThatAffectsMyMovement().above(1), SMPSounds.DISRUPTION.value(), SoundSource.PLAYERS, 0.4f, 1);
     }
 
     @Override

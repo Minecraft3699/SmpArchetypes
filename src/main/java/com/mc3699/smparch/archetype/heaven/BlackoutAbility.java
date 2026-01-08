@@ -44,7 +44,7 @@ public class BlackoutAbility extends BaseAbility {
                 entity.addEffect(new MobEffectInstance(MobEffects.DARKNESS, 8*20, 2));
             }
         });
-        serverLevel.playSound(null, player.getBlockPosBelowThatAffectsMyMovement().above(1), SMPSounds.BLACKOUT.value(), SoundSource.PLAYERS, 8, 1);
+        serverLevel.playSound(null, player.getBlockPosBelowThatAffectsMyMovement().above(1), SMPSounds.BLACKOUT.value(), SoundSource.PLAYERS, 0.5f, 1);
     }
 
     @Override
