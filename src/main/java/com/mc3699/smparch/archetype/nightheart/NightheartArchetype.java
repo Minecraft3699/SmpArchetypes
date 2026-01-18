@@ -1,14 +1,17 @@
 package com.mc3699.smparch.archetype.nightheart;
 
+import com.mc3699.smparch.SMPArch;
 import com.mc3699.smparch.registry.SMPAbilities;
 import net.mc3699.provenance.ability.foundation.AmbientAbility;
 import net.mc3699.provenance.ability.foundation.BaseAbility;
 import net.mc3699.provenance.archetype.foundation.BaseArchetype;
 import net.mc3699.provenance.registry.ProvAbilities;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 
 public class NightheartArchetype extends BaseArchetype {
     @Override
@@ -24,11 +27,10 @@ public class NightheartArchetype extends BaseArchetype {
     }
 
     @Override
-    public HashMap<Integer, BaseAbility> getPlayerAbilities() {
-        HashMap<Integer, BaseAbility> abilityMap = new HashMap<>();
-        abilityMap.put(1, SMPAbilities.RANDOM_TELEPORT.get());
-
-        return abilityMap;
+    public Set<ResourceLocation> getGrantedAbilities() {
+        return Set.of(
+                SMPArch.path("random_teleport")
+        );
     }
 
     @Override

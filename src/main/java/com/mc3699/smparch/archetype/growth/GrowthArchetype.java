@@ -1,14 +1,17 @@
 package com.mc3699.smparch.archetype.growth;
 
+import com.mc3699.smparch.SMPArch;
 import com.mc3699.smparch.registry.SMPAbilities;
 import net.mc3699.provenance.ability.foundation.AmbientAbility;
 import net.mc3699.provenance.ability.foundation.BaseAbility;
 import net.mc3699.provenance.archetype.foundation.BaseArchetype;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Set;
 
 public class GrowthArchetype extends BaseArchetype {
     @Override
@@ -22,11 +25,11 @@ public class GrowthArchetype extends BaseArchetype {
     }
 
     @Override
-    public HashMap<Integer, BaseAbility> getPlayerAbilities() {
-        HashMap<Integer, BaseAbility> abilities = new LinkedHashMap<>();
-        abilities.put(1,SMPAbilities.NATURES_SIGHT.get());
-        abilities.put(2,SMPAbilities.NATURES_GIFT.get());
-        return abilities;
+    public Set<ResourceLocation> getGrantedAbilities() {
+        return Set.of(
+                SMPArch.path("nature_sight"),
+                SMPArch.path("nature_gift")
+        );
     }
 
     @Override

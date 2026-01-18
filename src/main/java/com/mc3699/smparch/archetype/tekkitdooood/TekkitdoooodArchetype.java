@@ -4,9 +4,11 @@ import net.mc3699.provenance.ability.foundation.AmbientAbility;
 import net.mc3699.provenance.ability.foundation.BaseAbility;
 import net.mc3699.provenance.archetype.foundation.BaseArchetype;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 
 public class TekkitdoooodArchetype extends BaseArchetype {
     @Override
@@ -19,10 +21,10 @@ public class TekkitdoooodArchetype extends BaseArchetype {
         return List.of();
     }
 
-    //Cannot be too careful with null (also this is the way the human does it so uh yeah)
+    // u use empty set now lol
     @Override
-    public HashMap<Integer, BaseAbility> getPlayerAbilities() {
-        return HashMap.newHashMap(0);
+    public Set<ResourceLocation> getGrantedAbilities() {
+        return Set.of();
     }
 
     @Override

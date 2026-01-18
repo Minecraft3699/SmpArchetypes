@@ -1,14 +1,17 @@
 package com.mc3699.smparch.archetype.miku;
 
+import com.mc3699.smparch.SMPArch;
 import com.mc3699.smparch.registry.SMPAbilities;
 import net.mc3699.provenance.ability.foundation.AmbientAbility;
 import net.mc3699.provenance.ability.foundation.BaseAbility;
 import net.mc3699.provenance.archetype.foundation.BaseArchetype;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Set;
 
 public class MikuArchetype extends BaseArchetype {
     @Override
@@ -22,17 +25,16 @@ public class MikuArchetype extends BaseArchetype {
     }
 
     @Override
-    public HashMap<Integer, BaseAbility> getPlayerAbilities() {
-        HashMap<Integer, BaseAbility> abilities = new LinkedHashMap<>();
-        abilities.put(1, SMPAbilities.SKULK_BLAST.get());
-        abilities.put(2, SMPAbilities.WARDEN_SKIN.get());
-        abilities.put(3, SMPAbilities.WARDEN_STRENGTH.get());
-        abilities.put(4, SMPAbilities.SONIC_BOOM.get());
-        abilities.put(5, SMPAbilities.STRONG_LEGS_HEAVY_ARMS.get());
-        abilities.put(6, SMPAbilities.DEEP_DARKNESS.get());
-        abilities.put(7, SMPAbilities.AID_FROM_BELOW.get());
-        //abilities.put(8, SMPAbilities.SKULK_SHIELD.get());
-        return abilities;
+    public Set<ResourceLocation> getGrantedAbilities() {
+        return Set.of(
+                SMPArch.path("skulk_blast"),
+                SMPArch.path("warden_skin"),
+                SMPArch.path("warden_strength"),
+                SMPArch.path("sonic_boom"),
+                SMPArch.path("strong_legs_heavy_arms"),
+                SMPArch.path("deep_darkness"),
+                SMPArch.path("aid_from_below")
+        );
     }
 
     @Override

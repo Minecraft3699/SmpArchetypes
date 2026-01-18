@@ -1,14 +1,17 @@
 package com.mc3699.smparch.archetype.heaven;
 
+import com.mc3699.smparch.SMPArch;
 import com.mc3699.smparch.registry.SMPAbilities;
 import net.mc3699.provenance.ability.foundation.AmbientAbility;
 import net.mc3699.provenance.ability.foundation.BaseAbility;
 import net.mc3699.provenance.archetype.foundation.BaseArchetype;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Set;
 
 public class HeavenArchetype extends BaseArchetype {
     @Override
@@ -22,13 +25,13 @@ public class HeavenArchetype extends BaseArchetype {
     }
 
     @Override
-    public HashMap<Integer, BaseAbility> getPlayerAbilities() {
-        HashMap<Integer, BaseAbility> abilities = new LinkedHashMap<>();
-        abilities.put(1, SMPAbilities.BLACKOUT.get());
-        abilities.put(2, SMPAbilities.DISRUPTION.get());
-        abilities.put(3, SMPAbilities.CONTAGION.get());
-        abilities.put(4, SMPAbilities.OVERHEAT.get());
-        return abilities;
+    public Set<ResourceLocation> getGrantedAbilities() {
+        return Set.of(
+                SMPArch.path("blackout"),
+                SMPArch.path("disruption"),
+                SMPArch.path("contagion"),
+                SMPArch.path("overheat")
+        );
     }
 
     @Override
