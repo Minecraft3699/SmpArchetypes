@@ -4,9 +4,11 @@ import com.mc3699.smparch.SMPArch;
 import com.mc3699.smparch.archetype.aidenman.AidenArchetype;
 import com.mc3699.smparch.archetype.arveral.ArveralArchetype;
 import com.mc3699.smparch.archetype.blox.BloxArchetype;
+import com.mc3699.smparch.archetype.eyae.EyaeArchetype;
 import com.mc3699.smparch.archetype.firelight.FirelightArchetype;
 import com.mc3699.smparch.archetype.growth.GrowthArchetype;
 import com.mc3699.smparch.archetype.heaven.HeavenArchetype;
+import com.mc3699.smparch.archetype.john_generic.JohnArchetype;
 import com.mc3699.smparch.archetype.john_ultrakill.JohnUltrakillArchetype;
 import com.mc3699.smparch.archetype.miku.MikuArchetype;
 import com.mc3699.smparch.archetype.nightheart.NightheartArchetype;
@@ -58,8 +60,15 @@ public class SMPArchetypes {
 
     public static final Supplier<TekkitdoooodArchetype> TEKKITDOOOOD =
             ARCHETYPES.register("tekkitdooood", TekkitdoooodArchetype::new);
+
     public static final Supplier<MikuArchetype> MIKU =
             ARCHETYPES.register("miku", MikuArchetype::new);
+
+    public static final Supplier<EyaeArchetype> EYAE =
+            ARCHETYPES.register("eyae", EyaeArchetype::new);
+
+    public static final Supplier<JohnArchetype> JOHN_GENERIC =
+            ARCHETYPES.register("john_generic", JohnArchetype::new);
 
     public static void register(IEventBus eventBus)
     {
