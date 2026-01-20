@@ -25,7 +25,7 @@ public class SMPAnimations {
             ResourceLocation.fromNamespaceAndPath(SMPArch.MODID, "quick_cast");
 
     // Follow this format with your ANIM names
-    //See FireArrowAbility For an example on how to play an animation
+    //See FireballAbility For an example on how to play an animation
 
     //End of Resourcelocations
     public static void registerAnimationLayer() {

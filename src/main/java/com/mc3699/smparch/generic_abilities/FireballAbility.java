@@ -1,5 +1,7 @@
 package com.mc3699.smparch.generic_abilities;
 
+import com.mc3699.smparch.network.PlayAnimationPacket;
+import com.mc3699.smparch.registry.SMPAnimations;
 import net.mc3699.provenance.ability.foundation.BaseAbility;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
@@ -13,6 +15,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.projectile.Fireball;
 import net.minecraft.world.entity.projectile.SmallFireball;
 import net.minecraft.world.phys.Vec3;
+import net.neoforged.neoforge.network.PacketDistributor;
 
 public class FireballAbility extends BaseAbility {
 
@@ -47,6 +50,11 @@ public class FireballAbility extends BaseAbility {
         );
         fireball.setPos(spawnPos);
         fireball.setDeltaMovement(velocity);
+
+        //Here is an example of how to send an animation packet to a player so he plays the animation
+        //Legit just one line of code im proud of it :D
+        PacketDistributor.sendToPlayer(player, new PlayAnimationPacket(SMPAnimations.QUICK_CAST));
+
         serverLevel.addFreshEntity(fireball);
 serverLevel.playSound(null, player.getBlockPosBelowThatAffectsMyMovement().above(1), SoundEvents.FIRECHARGE_USE, SoundSource.PLAYERS, 1, 1);
     }

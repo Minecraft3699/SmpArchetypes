@@ -7,6 +7,8 @@ import net.mc3699.provenance.util.ProvKeymappings;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.Tag;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -25,23 +27,32 @@ public class EyaeAnimationHandler {
 
         if (barKeyDown && !prevBarKey) {
             if (Minecraft.getInstance().player instanceof AbstractClientPlayer player) {
-                CompoundTag data = ClientAbilityInfo.clientData;
-                String abilityId = data.getString("slot_1");
-                //SMPArch.LOGGER.debug(abilityId);
-                if (abilityId.equals("smparch:summon_big_hands")) { //The thing which actually checks which ability is in slot one
+                if (hasAbility()) {
                     SMPAnimations.playAnimation(player, SMPAnimations.OPEN_TERMINAL);
                 }
             }
         } else if (!barKeyDown && prevBarKey) {
             if (Minecraft.getInstance().player instanceof AbstractClientPlayer player) {
-                CompoundTag data = ClientAbilityInfo.clientData;
-                String abilityId = data.getString("slot_1");
-                if (abilityId.equals("smparch:summon_big_hands")) { //The thing which actually checks which ability is in slot one 2 electric boogalo
+                if (hasAbility()) {
                     SMPAnimations.playAnimation(player, SMPAnimations.CLOSE_TERMINAL);
                 }
             }
         }
 
         prevBarKey = barKeyDown;
+    }
+
+    //This might be a lil laggy idfk :P
+    private static boolean hasAbility() {
+        CompoundTag data = ClientAbilityInfo.clientData;
+        ListTag abilityList = data.getList("abilities", Tag.TAG_STRING);
+
+        for (Tag t : abilityList) {
+            String abilityId = t.getAsString();
+            if (abilityId.equals("smparch:summon_big_hands")) {
+                return true;
+            }
+        }
+        return false;
     }
 }

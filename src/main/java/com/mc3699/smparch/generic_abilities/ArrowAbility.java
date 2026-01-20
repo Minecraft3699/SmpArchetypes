@@ -40,9 +40,6 @@ public class ArrowAbility extends BaseAbility {
         arrow.setCritArrow(true);
         arrow.pickup = AbstractArrow.Pickup.CREATIVE_ONLY;
 
-        //Here is an example of how to send an animation packet to a player so he plays the animation
-        //Legit just one line of code im proud of it :D
-        PacketDistributor.sendToPlayer(player, new PlayAnimationPacket(SMPAnimations.QUICK_CAST));
         player.level().addFreshEntity(arrow);
     }
 
