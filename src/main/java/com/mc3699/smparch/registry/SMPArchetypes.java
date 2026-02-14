@@ -4,6 +4,7 @@ import com.mc3699.smparch.SMPArch;
 import com.mc3699.smparch.archetype.aidenman.AidenArchetype;
 import com.mc3699.smparch.archetype.arveral.ArveralArchetype;
 import com.mc3699.smparch.archetype.blox.BloxArchetype;
+import com.mc3699.smparch.archetype.darkninja.DarkNinjaArchetype;
 import com.mc3699.smparch.archetype.eyae.EyaeArchetype;
 import com.mc3699.smparch.archetype.firelight.FirelightArchetype;
 import com.mc3699.smparch.archetype.growth.GrowthArchetype;
@@ -63,6 +64,9 @@ public class SMPArchetypes {
 
     public static final Supplier<MikuArchetype> MIKU =
             ARCHETYPES.register("miku", MikuArchetype::new);
+    
+    public static final Supplier<DarkNinjaArchetype> DARKNINJA =
+            ARCHETYPES.register("darkninja", DarkNinjaArchetype::new);
 
     public static final Supplier<EyaeArchetype> EYAE =
             ARCHETYPES.register("eyae", EyaeArchetype::new);
