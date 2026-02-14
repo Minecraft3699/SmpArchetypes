@@ -6,6 +6,7 @@ import com.mc3699.smparch.archetype.arveral.TendrilsAbility;
 import com.mc3699.smparch.archetype.blox.BloxDashAbility;
 import com.mc3699.smparch.archetype.blox.BloxShieldAbility;
 import com.mc3699.smparch.archetype.blox.BloxSpeedAbility;
+import com.mc3699.smparch.archetype.eyae.SummonBigHandsAbility;
 import com.mc3699.smparch.archetype.firelight.DragonLeapAbility;
 import com.mc3699.smparch.archetype.growth.GrowthDebuff;
 import com.mc3699.smparch.archetype.growth.NatureGiftAbility;
@@ -22,9 +23,7 @@ import com.mc3699.smparch.archetype.nightheart.RandomTeleportAbility;
 import com.mc3699.smparch.archetype.pencil_html.EndStepAbility;
 import com.mc3699.smparch.archetype.terra.HeartbeatAbility;
 import com.mc3699.smparch.archetype.terra.SolarSurgeAbility;
-import com.mc3699.smparch.generic_abilities.DashAbility;
-import com.mc3699.smparch.generic_abilities.FireballAbility;
-import com.mc3699.smparch.generic_abilities.WallClimbAbility;
+import com.mc3699.smparch.generic_abilities.*;
 import net.mc3699.provenance.ProvenanceRegistries;
 import net.mc3699.provenance.ability.foundation.BaseAbility;
 import net.neoforged.bus.api.IEventBus;
@@ -36,7 +35,6 @@ public class SMPAbilities {
 
     public static final DeferredRegister<BaseAbility> ABILITIES =
             DeferredRegister.create(ProvenanceRegistries.ABILITY_REGISTRY, SMPArch.MODID);
-
 
     public static final Supplier<RandomTeleportAbility> RANDOM_TELEPORT =
             ABILITIES.register("random_teleport", RandomTeleportAbility::new);
@@ -134,6 +132,11 @@ public class SMPAbilities {
     public static final Supplier<FireballAbility> FIREBALL =
             ABILITIES.register("fireball", FireballAbility::new);
 
+    public static final Supplier<ArrowAbility> ARROW =
+            ABILITIES.register("arrow", ArrowAbility::new);
+
+    public static final Supplier<SummonBigHandsAbility> SUMMON_BIG_HANDS =
+            ABILITIES.register("summon_big_hands", SummonBigHandsAbility::new);
 
     public static void register(IEventBus eventBus) { ABILITIES.register(eventBus); }
 
