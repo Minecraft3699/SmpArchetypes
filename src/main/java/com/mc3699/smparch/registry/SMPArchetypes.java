@@ -4,6 +4,7 @@ import com.mc3699.smparch.SMPArch;
 import com.mc3699.smparch.archetype.aidenman.AidenArchetype;
 import com.mc3699.smparch.archetype.arveral.ArveralArchetype;
 import com.mc3699.smparch.archetype.blox.BloxArchetype;
+import com.mc3699.smparch.archetype.emberflame65.EmberFlameArchetype;
 import com.mc3699.smparch.archetype.eyae.EyaeArchetype;
 import com.mc3699.smparch.archetype.firelight.FirelightArchetype;
 import com.mc3699.smparch.archetype.growth.GrowthArchetype;
@@ -69,6 +70,9 @@ public class SMPArchetypes {
 
     public static final Supplier<JohnArchetype> JOHN_GENERIC =
             ARCHETYPES.register("john_generic", JohnArchetype::new);
+
+    public static final Supplier<EmberFlameArchetype> EMBER_FLAME =
+            ARCHETYPES.register("ember_flame", EmberFlameArchetype::new);
 
     public static void register(IEventBus eventBus)
     {

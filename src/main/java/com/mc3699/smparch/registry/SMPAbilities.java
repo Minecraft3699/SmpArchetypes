@@ -6,6 +6,7 @@ import com.mc3699.smparch.archetype.arveral.TendrilsAbility;
 import com.mc3699.smparch.archetype.blox.BloxDashAbility;
 import com.mc3699.smparch.archetype.blox.BloxShieldAbility;
 import com.mc3699.smparch.archetype.blox.BloxSpeedAbility;
+import com.mc3699.smparch.archetype.emberflame65.*;
 import com.mc3699.smparch.archetype.eyae.SummonBigHandsAbility;
 import com.mc3699.smparch.archetype.firelight.DragonLeapAbility;
 import com.mc3699.smparch.archetype.growth.GrowthDebuff;
@@ -137,6 +138,21 @@ public class SMPAbilities {
 
     public static final Supplier<SummonBigHandsAbility> SUMMON_BIG_HANDS =
             ABILITIES.register("summon_big_hands", SummonBigHandsAbility::new);
+
+    public static final Supplier<EmberFlight> EMBER_FLIGHT =
+            ABILITIES.register("flight", EmberFlight::new);
+
+    public static final Supplier<EmberFlightBoost> FLIGHT_BOOST =
+            ABILITIES.register("flight_boost", EmberFlightBoost::new);
+
+    public static final Supplier<EmberSustainedFlight> SUSTAINED_FLIGHT =
+            ABILITIES.register("sustained_flight", EmberSustainedFlight::new);
+
+    public static final Supplier<EmberBirdSong> BIRD_SONG =
+            ABILITIES.register("bird_song", EmberBirdSong::new);
+
+    public static final Supplier<EmberJumpBoost> JUMP_BOOST =
+            ABILITIES.register("jump_boost", EmberJumpBoost::new);
 
     public static void register(IEventBus eventBus) { ABILITIES.register(eventBus); }
 
