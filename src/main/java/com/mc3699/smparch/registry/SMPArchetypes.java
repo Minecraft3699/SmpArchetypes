@@ -16,6 +16,7 @@ import com.mc3699.smparch.archetype.nightheart.NightheartArchetype;
 import com.mc3699.smparch.archetype.pencil_html.PencilHtmlArchetype;
 import com.mc3699.smparch.archetype.tekkitdooood.TekkitdoooodArchetype;
 import com.mc3699.smparch.archetype.terra.TerraArchetype;
+import com.mc3699.smparch.archetype.zorgoliath.HarkenerArchetype;
 import net.mc3699.provenance.ProvenanceRegistries;
 import net.mc3699.provenance.archetype.foundation.BaseArchetype;
 import net.neoforged.bus.api.IEventBus;
@@ -73,6 +74,9 @@ public class SMPArchetypes {
 
     public static final Supplier<EmberFlameArchetype> EMBER_FLAME =
             ARCHETYPES.register("ember_flame", EmberFlameArchetype::new);
+
+    public static final Supplier<HarkenerArchetype> HARKENER =
+            ARCHETYPES.register("harkener", HarkenerArchetype::new);
 
     public static void register(IEventBus eventBus)
     {

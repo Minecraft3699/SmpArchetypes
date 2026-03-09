@@ -24,6 +24,9 @@ import com.mc3699.smparch.archetype.nightheart.RandomTeleportAbility;
 import com.mc3699.smparch.archetype.pencil_html.EndStepAbility;
 import com.mc3699.smparch.archetype.terra.HeartbeatAbility;
 import com.mc3699.smparch.archetype.terra.SolarSurgeAbility;
+import com.mc3699.smparch.archetype.zorgoliath.HarkenTrueSight;
+import com.mc3699.smparch.archetype.zorgoliath.HarkenerSilentDash;
+import com.mc3699.smparch.archetype.zorgoliath.HarkenerWrathfulAdvance;
 import com.mc3699.smparch.generic_abilities.*;
 import net.mc3699.provenance.ProvenanceRegistries;
 import net.mc3699.provenance.ability.foundation.BaseAbility;
@@ -153,6 +156,15 @@ public class SMPAbilities {
 
     public static final Supplier<EmberJumpBoost> JUMP_BOOST =
             ABILITIES.register("jump_boost", EmberJumpBoost::new);
+
+    public static final Supplier<HarkenTrueSight> TRUE_SIGHT =
+            ABILITIES.register("true_sight", HarkenTrueSight::new);
+
+    public static final Supplier<HarkenerSilentDash> SILENT_DASH =
+            ABILITIES.register("silent_dash", HarkenerSilentDash::new);
+
+    public static final Supplier<HarkenerWrathfulAdvance> WRATHFUL_ADVANCE =
+            ABILITIES.register("wrathful_advance", HarkenerWrathfulAdvance::new);
 
     public static void register(IEventBus eventBus) { ABILITIES.register(eventBus); }
 
