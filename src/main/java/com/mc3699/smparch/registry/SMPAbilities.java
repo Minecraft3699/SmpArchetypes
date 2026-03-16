@@ -22,6 +22,8 @@ import com.mc3699.smparch.archetype.john_ultrakill.UltrakillSlamAbility;
 import com.mc3699.smparch.archetype.miku.*;
 import com.mc3699.smparch.archetype.nightheart.RandomTeleportAbility;
 import com.mc3699.smparch.archetype.pencil_html.EndStepAbility;
+import com.mc3699.smparch.archetype.teebee.AmplifyAbility;
+import com.mc3699.smparch.archetype.teebee.ReverseAbility;
 import com.mc3699.smparch.archetype.terra.HeartbeatAbility;
 import com.mc3699.smparch.archetype.terra.SolarSurgeAbility;
 import com.mc3699.smparch.archetype.zorgoliath.HarkenTrueSight;
@@ -165,6 +167,12 @@ public class SMPAbilities {
 
     public static final Supplier<HarkenerWrathfulAdvance> WRATHFUL_ADVANCE =
             ABILITIES.register("wrathful_advance", HarkenerWrathfulAdvance::new);
+
+    public static final Supplier<AmplifyAbility> AMPLIFY =
+            ABILITIES.register("amplify", AmplifyAbility::new);
+
+    public static final Supplier<ReverseAbility> REVERSE =
+            ABILITIES.register("reverse", ReverseAbility::new);
 
     public static void register(IEventBus eventBus) { ABILITIES.register(eventBus); }
 
