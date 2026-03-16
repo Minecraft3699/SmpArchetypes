@@ -1,10 +1,7 @@
 package com.mc3699.smparch.network;
 
 import com.mc3699.smparch.SMPArch;
-import com.mc3699.smparch.registry.SMPAnimations;
 import io.netty.buffer.ByteBuf;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.ResourceLocation;
@@ -27,10 +24,6 @@ public record PlayAnimationPacket(ResourceLocation animationId) implements Custo
     }
 
     public static void handle(PlayAnimationPacket packet, IPayloadContext context) {
-        context.enqueueWork(() -> {
-            if (Minecraft.getInstance().player instanceof AbstractClientPlayer player) {
-                SMPAnimations.playAnimation(player, packet.animationId());
-            }
-        });
+        context.enqueueWork(() -> ClientPayloadHandler.handlePlayAnimation(packet));
     }
 }
