@@ -53,6 +53,7 @@ public class FireballAbility extends BaseAbility {
 
         //Here is an example of how to send an animation packet to a player so he plays the animation
         //Legit just one line of code im proud of it :D
+        //See SMPAnimations for how to register your animation.
         PacketDistributor.sendToPlayer(player, new PlayAnimationPacket(SMPAnimations.QUICK_CAST));
 
         serverLevel.addFreshEntity(fireball);
