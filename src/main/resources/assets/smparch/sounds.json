@@ -37,5 +37,37 @@
         "name": "smparch:blackout"
       }
     ]
+  },
+
+  "birdsong1" : {
+    "sounds": [
+      {
+        "name": "smparch:birdsong1"
+      }
+    ]
+  },
+
+  "birdsong2" : {
+    "sounds": [
+      {
+        "name": "smparch:birdsong2"
+      }
+    ]
+  },
+
+  "birdsong3" : {
+    "sounds": [
+      {
+        "name": "smparch:birdsong3"
+      }
+    ]
+  },
+
+  "american_woodcock" : {
+    "sounds": [
+      {
+        "name": "smparch:american_woodcock"
+      }
+    ]
   }
 }
