@@ -1,38 +1,21 @@
 package com.mc3699.smparch.registry;
 
 import com.mc3699.smparch.SMPArch;
-import com.mc3699.smparch.archetype.aidenman.PhotosynthesisAbility;
-import com.mc3699.smparch.archetype.arveral.TendrilsAbility;
-import com.mc3699.smparch.archetype.blox.BloxDashAbility;
-import com.mc3699.smparch.archetype.blox.BloxShieldAbility;
-import com.mc3699.smparch.archetype.blox.BloxSpeedAbility;
-import com.mc3699.smparch.archetype.darkninja.ExperienceCrystallizationAbility;
-import com.mc3699.smparch.archetype.darkninja.FocusedTeleportationAbility;
-import com.mc3699.smparch.archetype.darkninja.HighJumpAbility;
-import com.mc3699.smparch.archetype.darkninja.MoonsPunishment;
+import com.mc3699.smparch.archetype.aidenman.*;
+import com.mc3699.smparch.archetype.arveral.*;
+import com.mc3699.smparch.archetype.blox.*;
 import com.mc3699.smparch.archetype.emberflame65.*;
-import com.mc3699.smparch.archetype.eyae.SummonBigHandsAbility;
-import com.mc3699.smparch.archetype.firelight.DragonLeapAbility;
-import com.mc3699.smparch.archetype.growth.GrowthDebuff;
-import com.mc3699.smparch.archetype.growth.NatureGiftAbility;
-import com.mc3699.smparch.archetype.growth.NatureSightAbility;
-import com.mc3699.smparch.archetype.heaven.BlackoutAbility;
-import com.mc3699.smparch.archetype.heaven.ContagionAbility;
-import com.mc3699.smparch.archetype.heaven.DisruptionAbility;
-import com.mc3699.smparch.archetype.heaven.OverheatAbility;
-import com.mc3699.smparch.archetype.john_ultrakill.UltrakillDashAbility;
-import com.mc3699.smparch.archetype.john_ultrakill.UltrakillFeedbackerAbility;
-import com.mc3699.smparch.archetype.john_ultrakill.UltrakillSlamAbility;
+import com.mc3699.smparch.archetype.eyae.*;
+import com.mc3699.smparch.archetype.firelight.*;
+import com.mc3699.smparch.archetype.growth.*;
+import com.mc3699.smparch.archetype.heaven.*;
+import com.mc3699.smparch.archetype.john_ultrakill.*;
 import com.mc3699.smparch.archetype.miku.*;
-import com.mc3699.smparch.archetype.nightheart.RandomTeleportAbility;
-import com.mc3699.smparch.archetype.pencil_html.EndStepAbility;
-import com.mc3699.smparch.archetype.teebee.AmplifyAbility;
-import com.mc3699.smparch.archetype.teebee.ReverseAbility;
-import com.mc3699.smparch.archetype.terra.HeartbeatAbility;
-import com.mc3699.smparch.archetype.terra.SolarSurgeAbility;
-import com.mc3699.smparch.archetype.zorgoliath.HarkenTrueSight;
-import com.mc3699.smparch.archetype.zorgoliath.HarkenerSilentDash;
-import com.mc3699.smparch.archetype.zorgoliath.HarkenerWrathfulAdvance;
+import com.mc3699.smparch.archetype.nightheart.*;
+import com.mc3699.smparch.archetype.pencil_html.*;
+import com.mc3699.smparch.archetype.teebee.*;
+import com.mc3699.smparch.archetype.terra.*;
+import com.mc3699.smparch.archetype.zorgoliath.*;
 import com.mc3699.smparch.generic_abilities.*;
 import net.mc3699.provenance.ProvenanceRegistries;
 import net.mc3699.provenance.ability.foundation.BaseAbility;
@@ -141,18 +124,6 @@ public class SMPAbilities {
 
     public static final Supplier<FireballAbility> FIREBALL =
             ABILITIES.register("fireball", FireballAbility::new);
-    
-    public static final Supplier<FocusedTeleportationAbility> FOCUSED_TELEPORTATION =
-            ABILITIES.register("focused_teleportation", FocusedTeleportationAbility::new);
-    
-    public static final Supplier<ExperienceCrystallizationAbility> EXPERIENCE_CRYSTALLIZATION =
-            ABILITIES.register("experience_crystallization", ExperienceCrystallizationAbility::new);
-    
-    public static final Supplier<HighJumpAbility> HIGH_JUMP =
-            ABILITIES.register("high_jump", HighJumpAbility::new);
-    
-    public static final Supplier<MoonsPunishment> MOONS_PUNISHMENT =
-            ABILITIES.register("moons_punishment", MoonsPunishment::new);
 
     public static final Supplier<ArrowAbility> ARROW =
             ABILITIES.register("arrow", ArrowAbility::new);
