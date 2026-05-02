@@ -16,7 +16,7 @@ import net.neoforged.neoforge.client.event.ClientTickEvent;
 
 //Shit Solution but from what i can tell prov just applies the abilitys from the arch and doesnt actually store which arch the player has
 //This handles the open and close prov menu anim
-@EventBusSubscriber(modid = SMPArch.MODID, bus = EventBusSubscriber.Bus.GAME, value = Dist.CLIENT)
+@EventBusSubscriber(modid = SMPArch.MODID, value = Dist.CLIENT)
 public class EyaeAnimationHandler {
 
     private static boolean prevBarKey = false;
