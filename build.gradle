@@ -11,12 +11,9 @@ group = mod_group_id
 repositories {
     mavenLocal()
     maven { url "https://cursemaven.com" }
-    maven { url "https://maven.thebrokenscript.net/snapshots"}
+    maven { url "https://maven.thebrokenscript.net/snapshots" }
     mavenCentral()
-    maven {
-        name = "RedlanceMinecraft"
-        url = "https://repo.redlance.org/public"
-    }
+    maven { url "https://repo.redlance.org/public" }
 }
 
 base {
@@ -120,11 +117,8 @@ dependencies {
     // Example project dependency using a sister or child project:
     // implementation project(":myproject")
 
-    implementation ("net.mc3699:provenance:2.6")
-
-    implementation("com.zigythebird.playeranim:PlayerAnimationLibNeo:$project.pal_version") {
-        transitive = false
-    }
+//    implementation ("net.mc3699:provenance:2.6")
+    implementation files("libs/provenance-2.61.jar")
     jarJar(implementation("com.zigythebird.playeranim:PlayerAnimationLibNeo:$project.pal_version")) {
         transitive = false
     }
