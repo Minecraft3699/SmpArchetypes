@@ -10,6 +10,7 @@ import com.mc3699.smparch.archetype.darkninja.ExperienceCrystallizationAbility;
 import com.mc3699.smparch.archetype.darkninja.FocusedTeleportationAbility;
 import com.mc3699.smparch.archetype.darkninja.HighJumpAbility;
 import com.mc3699.smparch.archetype.darkninja.MoonsPunishment;
+import com.mc3699.smparch.archetype.emberflame65.*;
 import com.mc3699.smparch.archetype.eyae.SummonBigHandsAbility;
 import com.mc3699.smparch.archetype.firelight.DragonLeapAbility;
 import com.mc3699.smparch.archetype.growth.GrowthDebuff;
@@ -25,8 +26,13 @@ import com.mc3699.smparch.archetype.john_ultrakill.UltrakillSlamAbility;
 import com.mc3699.smparch.archetype.miku.*;
 import com.mc3699.smparch.archetype.nightheart.RandomTeleportAbility;
 import com.mc3699.smparch.archetype.pencil_html.EndStepAbility;
+import com.mc3699.smparch.archetype.teebee.AmplifyAbility;
+import com.mc3699.smparch.archetype.teebee.ReverseAbility;
 import com.mc3699.smparch.archetype.terra.HeartbeatAbility;
 import com.mc3699.smparch.archetype.terra.SolarSurgeAbility;
+import com.mc3699.smparch.archetype.zorgoliath.HarkenTrueSight;
+import com.mc3699.smparch.archetype.zorgoliath.HarkenerSilentDash;
+import com.mc3699.smparch.archetype.zorgoliath.HarkenerWrathfulAdvance;
 import com.mc3699.smparch.generic_abilities.*;
 import net.mc3699.provenance.ProvenanceRegistries;
 import net.mc3699.provenance.ability.foundation.BaseAbility;
@@ -153,6 +159,36 @@ public class SMPAbilities {
 
     public static final Supplier<SummonBigHandsAbility> SUMMON_BIG_HANDS =
             ABILITIES.register("summon_big_hands", SummonBigHandsAbility::new);
+
+    public static final Supplier<EmberFlight> EMBER_FLIGHT =
+            ABILITIES.register("flight", EmberFlight::new);
+
+    public static final Supplier<EmberFlightBoost> FLIGHT_BOOST =
+            ABILITIES.register("flight_boost", EmberFlightBoost::new);
+
+    public static final Supplier<EmberSustainedFlight> SUSTAINED_FLIGHT =
+            ABILITIES.register("sustained_flight", EmberSustainedFlight::new);
+
+    public static final Supplier<EmberBirdSong> BIRD_SONG =
+            ABILITIES.register("bird_song", EmberBirdSong::new);
+
+    public static final Supplier<EmberJumpBoost> JUMP_BOOST =
+            ABILITIES.register("jump_boost", EmberJumpBoost::new);
+
+    public static final Supplier<HarkenTrueSight> TRUE_SIGHT =
+            ABILITIES.register("true_sight", HarkenTrueSight::new);
+
+    public static final Supplier<HarkenerSilentDash> SILENT_DASH =
+            ABILITIES.register("silent_dash", HarkenerSilentDash::new);
+
+    public static final Supplier<HarkenerWrathfulAdvance> WRATHFUL_ADVANCE =
+            ABILITIES.register("wrathful_advance", HarkenerWrathfulAdvance::new);
+
+    public static final Supplier<AmplifyAbility> AMPLIFY =
+            ABILITIES.register("amplify", AmplifyAbility::new);
+
+    public static final Supplier<ReverseAbility> REVERSE =
+            ABILITIES.register("reverse", ReverseAbility::new);
 
     public static void register(IEventBus eventBus) { ABILITIES.register(eventBus); }
 
