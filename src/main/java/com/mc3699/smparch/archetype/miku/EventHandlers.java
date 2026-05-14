@@ -6,15 +6,18 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.monster.warden.Warden;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingChangeTargetEvent;
+import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDropsEvent;
 import net.neoforged.neoforge.event.entity.living.LivingExperienceDropEvent;
 import net.neoforged.neoforge.event.entity.player.AttackEntityEvent;
@@ -24,24 +27,23 @@ import net.neoforged.neoforge.event.tick.EntityTickEvent;
 @EventBusSubscriber(modid = SMPArch.MODID)
 public class EventHandlers {
     @SubscribeEvent
-    public static void onAttack(AttackEntityEvent event) {
-        Player player = event.getEntity();
+    public static void onAttack(LivingDamageEvent.Pre event) {
+
+        if(!(event.getSource().getDirectEntity() instanceof Player player)) return;
+
+
         if(ProvenanceDataHandler.getAbilities(player).stream().noneMatch(ability -> ability instanceof WardenStrengthAbility)) return;
-        
-        Entity target = event.getTarget();
-        
         var bonus = WardenStrengthAbility.NEXT_ATTACK_BONUS.get(player);
         if (bonus == null) return;
-        double baseDamage = player.getAttribute(Attributes.ATTACK_DAMAGE).getValue();
+        double baseDamage = event.getOriginalDamage();
         
-        event.setCanceled(true);
-        
-        target.hurt(player.damageSources().playerAttack(player), (float) (baseDamage + bonus));
+        event.setNewDamage((float) (baseDamage + 10));
+
         player.level().playSound(null, player.blockPosition(), SoundEvents.WARDEN_ATTACK_IMPACT, SoundSource.PLAYERS, 1.0F, 1.0F);
         player.level().playSound(null, player.blockPosition(), SoundEvents.PLAYER_ATTACK_STRONG, SoundSource.PLAYERS, 1.0F, 1.0F);
         player.level().playSound(null, player.blockPosition(), SoundEvents.PLAYER_ATTACK_KNOCKBACK, SoundSource.PLAYERS, 1.0F, 1.0F);
         WardenStrengthAbility.NEXT_ATTACK_BONUS.remove(player);
-        player.displayClientMessage(Component.literal("Warden Strength has worn off. (Used on " + event.getTarget().getName().getString() + ")").withStyle(ChatFormatting.ITALIC, ChatFormatting.AQUA), true);
+        player.displayClientMessage(Component.literal("Warden Strength has worn off. (Used on " + event.getEntity().getName().getString() + ")").withStyle(ChatFormatting.ITALIC, ChatFormatting.AQUA), true);
     }
     
     @SubscribeEvent

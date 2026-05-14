@@ -1,5 +1,7 @@
 package com.mc3699.smparch.archetype.teebee;
 
+import com.mc3699.smparch.SMPArch;
+import com.mc3699.smparch.registry.SMPAbilities;
 import net.mc3699.provenance.ability.foundation.AmbientAbility;
 import net.mc3699.provenance.archetype.foundation.BaseArchetype;
 import net.minecraft.network.chat.Component;
@@ -21,7 +23,10 @@ public class TeebeeArchetype extends BaseArchetype {
 
     @Override
     public Set<ResourceLocation> getGrantedAbilities() {
-        return Set.of();
+        return Set.of(
+                SMPArch.path("amplify"),
+                SMPArch.path("reverse")
+        );
     }
 
     @Override

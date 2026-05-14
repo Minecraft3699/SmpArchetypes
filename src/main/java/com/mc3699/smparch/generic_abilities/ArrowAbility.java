@@ -1,7 +1,5 @@
 package com.mc3699.smparch.generic_abilities;
 
-import com.mc3699.smparch.network.PlayAnimationPacket;
-import com.mc3699.smparch.registry.SMPAnimations;
 import net.mc3699.provenance.ability.foundation.BaseAbility;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;

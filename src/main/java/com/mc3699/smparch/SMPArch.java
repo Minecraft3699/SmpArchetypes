@@ -1,6 +1,5 @@
 package com.mc3699.smparch;
 
-import com.mc3699.smparch.network.PlayAnimationPacket;
 import com.mc3699.smparch.registry.SMPAbilities;
 import com.mc3699.smparch.registry.SMPArchetypes;
 import com.mc3699.smparch.registry.SMPEntities;
@@ -24,20 +23,9 @@ public class SMPArch {
         SMPArchetypes.register(modEventBus);
         SMPEntities.register(modEventBus);
         SMPSounds.register(modEventBus);
-
-        modEventBus.addListener(this::registerPackets);
     }
 
     public static ResourceLocation path(String id) {
         return ResourceLocation.fromNamespaceAndPath(MODID, id);
-    }
-
-    private void registerPackets(RegisterPayloadHandlersEvent event) {
-        PayloadRegistrar registrar = event.registrar("1");
-        registrar.playToClient(
-                PlayAnimationPacket.TYPE,
-                PlayAnimationPacket.STREAM_CODEC,
-                PlayAnimationPacket::handle
-        );
     }
 }

@@ -14,7 +14,7 @@ public class SkulkBlastAbility extends BaseAbility {
 
     @Override
     public int getCooldown() {
-        return 5*40;
+        return 20;
     }
 
     @Override

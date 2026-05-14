@@ -1,8 +1,6 @@
 package com.mc3699.smparch.archetype.eyae;
 
 import com.mc3699.smparch.SMPArch;
-import com.mc3699.smparch.network.PlayAnimationPacket;
-import com.mc3699.smparch.registry.SMPAnimations;
 import net.mc3699.provenance.ability.foundation.BaseAbility;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -26,7 +24,6 @@ public class SummonBigHandsAbility extends BaseAbility {
     @Override
     public void execute(ServerPlayer player) {
         super.execute(player);
-        PacketDistributor.sendToPlayer(player, new PlayAnimationPacket(SMPAnimations.PRESS_TERMINAL));
     }
 
     @Override
