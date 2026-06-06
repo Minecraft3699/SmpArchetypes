@@ -6,10 +6,8 @@ import com.mc3699.smparch.archetype.arveral.TendrilsAbility;
 import com.mc3699.smparch.archetype.blox.BloxDashAbility;
 import com.mc3699.smparch.archetype.blox.BloxShieldAbility;
 import com.mc3699.smparch.archetype.blox.BloxSpeedAbility;
-import com.mc3699.smparch.archetype.darkninja.ExperienceCrystallizationAbility;
-import com.mc3699.smparch.archetype.darkninja.FocusedTeleportationAbility;
-import com.mc3699.smparch.archetype.darkninja.HighJumpAbility;
-import com.mc3699.smparch.archetype.darkninja.MoonsPunishment;
+import com.mc3699.smparch.archetype.emberflame65.*;
+import com.mc3699.smparch.archetype.eyae.SummonBigHandsAbility;
 import com.mc3699.smparch.archetype.firelight.DragonLeapAbility;
 import com.mc3699.smparch.archetype.growth.GrowthDebuff;
 import com.mc3699.smparch.archetype.growth.NatureGiftAbility;
@@ -17,21 +15,22 @@ import com.mc3699.smparch.archetype.growth.NatureSightAbility;
 import com.mc3699.smparch.archetype.heaven.BlackoutAbility;
 import com.mc3699.smparch.archetype.heaven.ContagionAbility;
 import com.mc3699.smparch.archetype.heaven.DisruptionAbility;
+import com.mc3699.smparch.archetype.heaven.OverheatAbility;
 import com.mc3699.smparch.archetype.john_ultrakill.UltrakillDashAbility;
 import com.mc3699.smparch.archetype.john_ultrakill.UltrakillFeedbackerAbility;
 import com.mc3699.smparch.archetype.john_ultrakill.UltrakillSlamAbility;
+import com.mc3699.smparch.archetype.miku.*;
 import com.mc3699.smparch.archetype.nightheart.RandomTeleportAbility;
-import com.mc3699.smparch.archetype.oscar_savior.BlinkAbility;
-import com.mc3699.smparch.archetype.oscar_savior.DeterminationAbility;
-import com.mc3699.smparch.archetype.starry.AirJumpAbility;
-import com.mc3699.smparch.archetype.starry.CessationAbility;
-import com.mc3699.smparch.archetype.starry.ConfusionAbility;
+import com.mc3699.smparch.archetype.pencil_html.EndStepAbility;
+import com.mc3699.smparch.archetype.teebee.AmplifyAbility;
+import com.mc3699.smparch.archetype.teebee.ReverseAbility;
 import com.mc3699.smparch.archetype.terra.HeartbeatAbility;
 import com.mc3699.smparch.archetype.terra.QuakeAbility;
 import com.mc3699.smparch.archetype.terra.SolarSurgeAbility;
-import com.mc3699.smparch.generic_abilities.DashAbility;
-import com.mc3699.smparch.generic_abilities.InvisTestAbility;
-import com.mc3699.smparch.generic_abilities.WallClimbAbility;
+import com.mc3699.smparch.archetype.zorgoliath.HarkenTrueSight;
+import com.mc3699.smparch.archetype.zorgoliath.HarkenerSilentDash;
+import com.mc3699.smparch.archetype.zorgoliath.HarkenerWrathfulAdvance;
+import com.mc3699.smparch.generic_abilities.*;
 import net.mc3699.provenance.ProvenanceRegistries;
 import net.mc3699.provenance.ability.foundation.BaseAbility;
 import net.neoforged.bus.api.IEventBus;
@@ -44,14 +43,14 @@ public class SMPAbilities {
     public static final DeferredRegister<BaseAbility> ABILITIES =
             DeferredRegister.create(ProvenanceRegistries.ABILITY_REGISTRY, SMPArch.MODID);
 
-    public static final Supplier<InvisTestAbility> INVIS_TEST =
-            ABILITIES.register("vanish", InvisTestAbility::new);
-
     public static final Supplier<RandomTeleportAbility> RANDOM_TELEPORT =
             ABILITIES.register("random_teleport", RandomTeleportAbility::new);
 
     public static final Supplier<ContagionAbility> CONTAGION =
             ABILITIES.register("contagion", ContagionAbility::new);
+
+    public static final Supplier<OverheatAbility> OVERHEAT =
+            ABILITIES.register("overheat", OverheatAbility::new);
 
     public static final Supplier<DashAbility> DASH =
             ABILITIES.register("dash", DashAbility::new);
@@ -67,12 +66,6 @@ public class SMPAbilities {
 
     public static final Supplier<BlackoutAbility> BLACKOUT =
             ABILITIES.register("blackout", BlackoutAbility::new);
-
-    public static final Supplier<BlinkAbility> BLINK =
-            ABILITIES.register("blink", BlinkAbility::new);
-
-    public static final Supplier<DeterminationAbility> DETERMINATION =
-            ABILITIES.register("determination", DeterminationAbility::new);
 
     public static final Supplier<DisruptionAbility> DISRUPTION =
             ABILITIES.register("disruption", DisruptionAbility::new);
@@ -116,27 +109,74 @@ public class SMPAbilities {
     public static final Supplier<UltrakillFeedbackerAbility> ULTRAKILL_FEEDBACKER =
             ABILITIES.register("ultrakill_feedbacker", UltrakillFeedbackerAbility::new);
 
-    public static final Supplier<FocusedTeleportationAbility> FOCUSED_TELEPORTATION =
-            ABILITIES.register("focused_teleportation", FocusedTeleportationAbility::new);
+    public static final Supplier<EndStepAbility> END_STEP =
+            ABILITIES.register("end_step", EndStepAbility::new);
+    public static final Supplier<SkulkBlastAbility> SKULK_BLAST =
+            ABILITIES.register("skulk_blast", SkulkBlastAbility::new);
 
-    public static final Supplier<ExperienceCrystallizationAbility> EXPERIENCE_CRYSTALLIZATION =
-            ABILITIES.register("experience_crystallization", ExperienceCrystallizationAbility::new);
+    public static final Supplier<WardenSkinAbility> WARDEN_SKIN =
+            ABILITIES.register("warden_skin", WardenSkinAbility::new);
 
-    public static final Supplier<HighJumpAbility> HIGH_JUMP =
-            ABILITIES.register("high_jump", HighJumpAbility::new);
+    public static final Supplier<WardenStrengthAbility> WARDEN_STRENGTH =
+            ABILITIES.register("warden_strength", WardenStrengthAbility::new);
 
-    public static final Supplier<MoonsPunishment> MOONS_PUNISHMENT =
-            ABILITIES.register("moons_punishment", MoonsPunishment::new);
+    public static final Supplier<SonicBoomAbility> SONIC_BOOM =
+            ABILITIES.register("sonic_boom", SonicBoomAbility::new);
 
-    public static final Supplier<ConfusionAbility> CONFUSION =
-            ABILITIES.register("confusion", ConfusionAbility::new);
+    public static final Supplier<StrongLegsHeavyArmsAbility> STRONG_LEGS_HEAVY_ARMS =
+            ABILITIES.register("strong_legs_heavy_arms", StrongLegsHeavyArmsAbility::new);
 
-    public static final Supplier<CessationAbility> CESSATION =
-            ABILITIES.register("cessation", CessationAbility::new);
+    /*public static final Supplier<SkulkShieldAbility> SKULK_SHIELD =
+            ABILITIES.register("skulk_shield", SkulkShieldAbility::new);*/
+    //Unimplemented ability commented out for now
 
-    public static final Supplier<AirJumpAbility> AIR_JUMP =
-            ABILITIES.register("air_jump", AirJumpAbility::new);
+    public static final Supplier<DeepDarknessAbility> DEEP_DARKNESS =
+            ABILITIES.register("deep_darkness", DeepDarknessAbility::new);
 
+    public static final Supplier<AidFromBelowAbility> AID_FROM_BELOW =
+            ABILITIES.register("aid_from_below", AidFromBelowAbility::new);
+
+    public static final Supplier<OneWithTheDark> ONE_WITH_THE_DARK =
+            ABILITIES.register("one_with_the_dark", OneWithTheDark::new);
+
+    public static final Supplier<FireballAbility> FIREBALL =
+            ABILITIES.register("fireball", FireballAbility::new);
+
+    public static final Supplier<ArrowAbility> ARROW =
+            ABILITIES.register("arrow", ArrowAbility::new);
+
+    public static final Supplier<SummonBigHandsAbility> SUMMON_BIG_HANDS =
+            ABILITIES.register("summon_big_hands", SummonBigHandsAbility::new);
+
+    public static final Supplier<EmberFlight> EMBER_FLIGHT =
+            ABILITIES.register("flight", EmberFlight::new);
+
+    public static final Supplier<EmberFlightBoost> FLIGHT_BOOST =
+            ABILITIES.register("flight_boost", EmberFlightBoost::new);
+
+    public static final Supplier<EmberSustainedFlight> SUSTAINED_FLIGHT =
+            ABILITIES.register("sustained_flight", EmberSustainedFlight::new);
+
+    public static final Supplier<EmberBirdSong> BIRD_SONG =
+            ABILITIES.register("bird_song", EmberBirdSong::new);
+
+    public static final Supplier<EmberJumpBoost> JUMP_BOOST =
+            ABILITIES.register("jump_boost", EmberJumpBoost::new);
+
+    public static final Supplier<HarkenTrueSight> TRUE_SIGHT =
+            ABILITIES.register("true_sight", HarkenTrueSight::new);
+
+    public static final Supplier<HarkenerSilentDash> SILENT_DASH =
+            ABILITIES.register("silent_dash", HarkenerSilentDash::new);
+
+    public static final Supplier<HarkenerWrathfulAdvance> WRATHFUL_ADVANCE =
+            ABILITIES.register("wrathful_advance", HarkenerWrathfulAdvance::new);
+
+    public static final Supplier<AmplifyAbility> AMPLIFY =
+            ABILITIES.register("amplify", AmplifyAbility::new);
+
+    public static final Supplier<ReverseAbility> REVERSE =
+            ABILITIES.register("reverse", ReverseAbility::new);
 
     public static void register(IEventBus eventBus) { ABILITIES.register(eventBus); }
 

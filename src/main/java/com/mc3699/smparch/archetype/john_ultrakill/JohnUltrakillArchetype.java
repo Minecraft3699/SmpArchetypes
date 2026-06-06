@@ -6,10 +6,12 @@ import net.mc3699.provenance.ability.foundation.AmbientAbility;
 import net.mc3699.provenance.ability.foundation.BaseAbility;
 import net.mc3699.provenance.archetype.foundation.BaseArchetype;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Set;
 
 public class JohnUltrakillArchetype extends BaseArchetype {
     @Override
@@ -23,12 +25,12 @@ public class JohnUltrakillArchetype extends BaseArchetype {
     }
 
     @Override
-    public HashMap<Integer, BaseAbility> getPlayerAbilities() {
-        HashMap<Integer, BaseAbility> abilities = new LinkedHashMap<>();
-        abilities.put(1, SMPAbilities.ULTRAKILL_DASH.get());
-        abilities.put(2, SMPAbilities.ULTRAKILL_SLAM.get());
-        abilities.put(3, SMPAbilities.ULTRAKILL_FEEDBACKER.get());
-        return abilities;
+    public Set<ResourceLocation> getGrantedAbilities() {
+        return Set.of(
+                SMPArch.path("ultrakill_dash"),
+                SMPArch.path("ultrakill_slam"),
+                SMPArch.path("ultrakill_feedbacker")
+        );
     }
 
     @Override

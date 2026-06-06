@@ -1,14 +1,17 @@
 package com.mc3699.smparch.archetype.firelight;
 
+import com.mc3699.smparch.SMPArch;
 import com.mc3699.smparch.registry.SMPAbilities;
 import net.mc3699.provenance.ability.foundation.AmbientAbility;
 import net.mc3699.provenance.ability.foundation.BaseAbility;
 import net.mc3699.provenance.archetype.foundation.BaseArchetype;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Set;
 
 public class FirelightArchetype extends BaseArchetype {
     @Override
@@ -22,10 +25,10 @@ public class FirelightArchetype extends BaseArchetype {
     }
 
     @Override
-    public HashMap<Integer, BaseAbility> getPlayerAbilities() {
-        HashMap<Integer, BaseAbility> abilities = new LinkedHashMap<>();
-        abilities.put(1, SMPAbilities.DRAGON_LEAP.get());
-        return abilities;
+    public Set<ResourceLocation> getGrantedAbilities() {
+        return Set.of(
+                SMPArch.path("dragon_leap")
+        );
     }
 
     @Override

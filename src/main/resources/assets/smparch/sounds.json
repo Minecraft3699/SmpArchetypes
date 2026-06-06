@@ -21,5 +21,53 @@
         "name": "smparch:slam_fall"
       }
     ]
+  },
+
+  "qhdone" : {
+    "sounds": [
+      {
+        "name": "smparch:qhdone"
+      }
+    ]
+  },
+
+  "blackout" : {
+    "sounds": [
+      {
+        "name": "smparch:blackout"
+      }
+    ]
+  },
+
+  "birdsong1" : {
+    "sounds": [
+      {
+        "name": "smparch:birdsong1"
+      }
+    ]
+  },
+
+  "birdsong2" : {
+    "sounds": [
+      {
+        "name": "smparch:birdsong2"
+      }
+    ]
+  },
+
+  "birdsong3" : {
+    "sounds": [
+      {
+        "name": "smparch:birdsong3"
+      }
+    ]
+  },
+
+  "american_woodcock" : {
+    "sounds": [
+      {
+        "name": "smparch:american_woodcock"
+      }
+    ]
   }
 }

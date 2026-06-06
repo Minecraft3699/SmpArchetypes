@@ -28,9 +28,14 @@ public class DisruptionAbility extends BaseAbility {
     }
 
     @Override
+    public int getCooldown() {
+        return 8*40;
+    }
+
+    @Override
     public void execute(ServerPlayer player) {
         super.execute(player);
-        AABB range = player.getBoundingBox().inflate(6);
+        AABB range = player.getBoundingBox().inflate(7);
         ServerLevel serverLevel = player.serverLevel();
 
         List<LivingEntity> effectEntities = serverLevel.getEntitiesOfClass(LivingEntity.class, range);
@@ -43,7 +48,7 @@ public class DisruptionAbility extends BaseAbility {
                 entity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 8 * 20, 2));
             }
         });
-        serverLevel.playSound(null, player.getBlockPosBelowThatAffectsMyMovement().above(1), SMPSounds.DISRUPTION.value(), SoundSource.PLAYERS, 6, 1);
+        serverLevel.playSound(null, player.getBlockPosBelowThatAffectsMyMovement().above(1), SMPSounds.DISRUPTION.value(), SoundSource.PLAYERS, 0.4f, 1);
     }
 
     @Override
