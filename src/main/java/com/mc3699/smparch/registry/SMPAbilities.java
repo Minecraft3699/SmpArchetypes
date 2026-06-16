@@ -2,6 +2,8 @@ package com.mc3699.smparch.registry;
 
 import com.mc3699.smparch.SMPArch;
 import com.mc3699.smparch.archetype.aidenman.PhotosynthesisAbility;
+import com.mc3699.smparch.archetype.ariytwo6.AriyhomeAbility;
+import com.mc3699.smparch.archetype.ariytwo6.WaterjumpAbility;
 import com.mc3699.smparch.archetype.arveral.TendrilsAbility;
 import com.mc3699.smparch.archetype.blox.BloxDashAbility;
 import com.mc3699.smparch.archetype.blox.BloxShieldAbility;
@@ -173,6 +175,12 @@ public class SMPAbilities {
 
     public static final Supplier<ReverseAbility> REVERSE =
             ABILITIES.register("reverse", ReverseAbility::new);
+
+    public static final Supplier<AriyhomeAbility> HOME =
+            ABILITIES.register("home_coming", AriyhomeAbility::new);
+
+    public static final Supplier<WaterjumpAbility> WJUMP =
+            ABILITIES.register("water_jump", WaterjumpAbility::new);
 
     public static void register(IEventBus eventBus) { ABILITIES.register(eventBus); }
 
