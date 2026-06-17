@@ -24,7 +24,8 @@ public class WaterjumpAbility extends BaseAbility {
 
     @Override
     public void execute(ServerPlayer player) {
-        player.setDeltaMovement(0,10,0);
+        super.execute(player);
+        player.setDeltaMovement(0,100,0);
         player.hurtMarked=true;
     }
 

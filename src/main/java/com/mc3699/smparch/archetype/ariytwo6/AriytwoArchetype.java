@@ -17,7 +17,9 @@ public class AriytwoArchetype extends BaseArchetype {
     public Set<ResourceLocation> getGrantedAbilities() {
         return Set.of(
                         SMPArch.path("home_coming"),
-                        SMPArch.path("water_jump")
+                        SMPArch.path("water_jump"),
+                        SMPArch.path("ground_punch"),
+                        SMPArch.path("strength_random")
                      );
     }
 }
