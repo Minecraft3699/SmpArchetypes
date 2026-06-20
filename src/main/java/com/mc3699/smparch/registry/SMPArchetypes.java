@@ -2,6 +2,7 @@ package com.mc3699.smparch.registry;
 
 import com.mc3699.smparch.SMPArch;
 import com.mc3699.smparch.archetype.aidenman.AidenArchetype;
+import com.mc3699.smparch.archetype.ariytwo6.AriytwoArchetype;
 import com.mc3699.smparch.archetype.arveral.ArveralArchetype;
 import com.mc3699.smparch.archetype.blox.BloxArchetype;
 import com.mc3699.smparch.archetype.emberflame65.EmberFlameArchetype;
@@ -85,6 +86,9 @@ public class SMPArchetypes {
 
     public static final Supplier<StarryArchetype> STAR =
             ARCHETYPES.register("star", StarryArchetype::new);
+  
+    public static final Supplier<AriytwoArchetype> ARIYTWO =
+            ARCHETYPES.register("ariytwo6", AriytwoArchetype::new);
 
     public static void register(IEventBus eventBus)
     {
