@@ -25,7 +25,6 @@ public class StarryArchetype extends BaseArchetype {
     public Set<ResourceLocation> getGrantedAbilities() {
         return Set.of(
                 SMPArch.path("cessation"),
-                SMPArch.path("confusion"),
                 SMPArch.path("air_jump")
         );
     }

@@ -29,7 +29,7 @@ public class AirJumpAbility extends BaseAbility {
     @Override
     public void execute(ServerPlayer player) {
         super.execute(player);
-        Vec3 lookDir = player.getLookAngle();
+        Vec3 lookDir = player.getLookAngle().normalize();
 
         Vec3 dashMotion = lookDir.multiply(VELOCITY_MULT, VELOCITY_MULT*4, VELOCITY_MULT);
         player.setDeltaMovement(dashMotion);
