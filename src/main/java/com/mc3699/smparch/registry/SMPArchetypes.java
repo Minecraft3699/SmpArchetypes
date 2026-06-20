@@ -15,6 +15,7 @@ import com.mc3699.smparch.archetype.john_ultrakill.JohnUltrakillArchetype;
 import com.mc3699.smparch.archetype.miku.MikuArchetype;
 import com.mc3699.smparch.archetype.nightheart.NightheartArchetype;
 import com.mc3699.smparch.archetype.pencil_html.PencilHtmlArchetype;
+import com.mc3699.smparch.archetype.starry.StarryArchetype;
 import com.mc3699.smparch.archetype.teebee.TeebeeArchetype;
 import com.mc3699.smparch.archetype.tekkitdooood.TekkitdoooodArchetype;
 import com.mc3699.smparch.archetype.terra.TerraArchetype;
@@ -83,6 +84,9 @@ public class SMPArchetypes {
     public static final Supplier<TeebeeArchetype> TEEBEE =
             ARCHETYPES.register("teebee", TeebeeArchetype::new);
 
+    public static final Supplier<StarryArchetype> STAR =
+            ARCHETYPES.register("star", StarryArchetype::new);
+  
     public static final Supplier<AriytwoArchetype> ARIYTWO =
             ARCHETYPES.register("ariytwo6", AriytwoArchetype::new);
 
