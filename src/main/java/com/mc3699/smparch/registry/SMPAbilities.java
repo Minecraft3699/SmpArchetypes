@@ -26,9 +26,12 @@ import com.mc3699.smparch.archetype.john_ultrakill.UltrakillSlamAbility;
 import com.mc3699.smparch.archetype.miku.*;
 import com.mc3699.smparch.archetype.nightheart.RandomTeleportAbility;
 import com.mc3699.smparch.archetype.pencil_html.EndStepAbility;
+import com.mc3699.smparch.archetype.starry.AirJumpAbility;
+import com.mc3699.smparch.archetype.starry.CessationAbility;
 import com.mc3699.smparch.archetype.teebee.AmplifyAbility;
 import com.mc3699.smparch.archetype.teebee.ReverseAbility;
 import com.mc3699.smparch.archetype.terra.HeartbeatAbility;
+import com.mc3699.smparch.archetype.terra.QuakeAbility;
 import com.mc3699.smparch.archetype.terra.SolarSurgeAbility;
 import com.mc3699.smparch.archetype.zorgoliath.HarkenTrueSight;
 import com.mc3699.smparch.archetype.zorgoliath.HarkenerSilentDash;
@@ -99,6 +102,9 @@ public class SMPAbilities {
 
     public static final Supplier<SolarSurgeAbility> SOLAR_SURGE =
             ABILITIES.register("solar_surge", SolarSurgeAbility::new);
+
+    public static final Supplier<QuakeAbility> QUAKE =
+            ABILITIES.register("quake", QuakeAbility::new);
 
     public static final Supplier<UltrakillDashAbility> ULTRAKILL_DASH =
             ABILITIES.register("ultrakill_dash", UltrakillDashAbility::new);
@@ -177,6 +183,13 @@ public class SMPAbilities {
 
     public static final Supplier<ReverseAbility> REVERSE =
             ABILITIES.register("reverse", ReverseAbility::new);
+
+    // Star
+    public static final Supplier<CessationAbility> CESSATION =
+            ABILITIES.register("cessation", CessationAbility::new);
+
+    public static final Supplier<AirJumpAbility> AIR_JUMP =
+            ABILITIES.register("air_jump", AirJumpAbility::new);
 
     public static final Supplier<AriyhomeAbility> HOME =
             ABILITIES.register("home_coming", AriyhomeAbility::new);
